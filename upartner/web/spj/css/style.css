@@ -1,0 +1,95 @@
+/* F
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-f {
+	border: 1px solid 		#7f7163;
+	background: 			#958574;
+	color: 					#ffffff;
+	font-weight: bold;
+	text-shadow: 0 -1px 1px #7f7163;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #b5a99b), to( #958574));
+	background-image: -webkit-linear-gradient(#b5a99b, #958574);
+	background-image:    -moz-linear-gradient(#b5a99b, #958574);
+	background-image:     -ms-linear-gradient(#b5a99b, #958574);
+	background-image:      -o-linear-gradient(#b5a99b, #958574);
+	background-image:         linear-gradient(#b5a99b, #958574);
+}
+.ui-btn-up-f {
+	text-decoration: none;
+	border: 1px solid 		#7f7163;
+	background: 			#958574;
+	font-weight: bold;
+	color: 					#fff;
+	text-shadow: 0 -1px 1px #7f7163;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #b5a99b), to( #958574));
+	background-image: -webkit-linear-gradient(#b5a99b, #958574);
+	background-image:    -moz-linear-gradient(#b5a99b, #958574);
+	background-image:     -ms-linear-gradient(#b5a99b, #958574);
+	background-image:      -o-linear-gradient(#b5a99b, #958574);
+	background-image:         linear-gradient(#b5a99b, #958574);
+}
+.ui-btn-hover-f,
+.ui-btn-down-f,
+.ui-body-f .ui-btn-active {
+	text-decoration: none;
+	border: 1px solid 		#7f7163;
+	background: 			#958574;
+	font-weight: bold;
+	color: 					#fff;
+	text-shadow: 0 -1px 1px #7f7163;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #958574), to( #b5a99b));
+	background-image: -webkit-linear-gradient(#958574, #b5a99b);
+	background-image:    -moz-linear-gradient(#958574, #b5a99b);
+	background-image:     -ms-linear-gradient(#958574, #b5a99b);
+	background-image:      -o-linear-gradient(#958574, #b5a99b);
+	background-image:         linear-gradient(#958574, #b5a99b);
+}
+
+/* 他
+-----------------------------------------------------------------------------------------------------------*/
+#new dl, #new dt, #new dd {
+	margin: 0px;
+	padding: 0px;
+}
+#new dt {
+	font-weight: bold;
+}
+#new dd {
+	border-bottom: 1px solid #999;
+}
+h2 {
+	font-size: 1.2em;
+	color: #FFFFFF;
+	background: #958574 url(../../images/title_bg.gif) no-repeat left center;
+	padding-left: 1.5em;
+}
+.ui-footer {
+	text-align: center;
+}
+.ui-footer a {
+	color: #FFF;
+	font-weight: normal;
+	text-decoration: none;
+}
+.ui-header h1 {
+	margin-left:0 !important;
+	margin-right:0 !important;
+}
+.bg {
+	background: url(../images/bg.gif) repeat-x center center;
+}
+#shopping h3, #shopping p{
+	overflow: visible;
+	white-space: normal;
+}
+#shopping .ui-li-thumb,
+#shopping .ui-li-thumb {
+	padding-top: 0.5em;
+	padding-left: 0.5em;
+}
+#googlemap {
+	width: 100%;
+	height: 300px;
+	border: 8px solid #ccc;
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}

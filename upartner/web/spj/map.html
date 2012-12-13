@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ショップ向け 無料で使えるWEBデザイン tp_shop1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script>
+// 個別設定
+$(document).ready(function(){
+// 情報ページ
+$('#map').bind('pageshow', function(){
+var TITLE = '国会議事堂',	//サイト名に入れ替えて下さい
+LAT = 35.675887,			//緯度を記入して下さい
+LNG = 139.744858,			//経度を記入して下さい
+MAP_ID = 'googlemap';
+//地図作成
+var infowindow = new google.maps.InfoWindow(),
+latLng = new google.maps.LatLng(LAT, LNG),
+map = new google.maps.Map(document.getElementById(MAP_ID), {
+zoom: 15,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+}),
+marker = new google.maps.Marker({
+title: TITLE,
+position: latLng,
+map: map
+});
+//地図表示
+map.setCenter(latLng);
+infowindow.open(map);
+});
+});
+</script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<div data-role="page" id="map" data-theme="f" data-add-back-btn="true" data-back-btn-text="戻る">
+
+<div data-role="header" data-theme="f">
+<h1>Map</h1>
+</div>
+
+<div data-role="content">
+
+<h2>Map</h2>
+<div id="googlemap"></div>
+
+</div>
+
+<div data-role="footer" data-theme="f">
+<small>&copy; 2012 Sample Onlin Shop</small><br>
+<small><a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a></small>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2741 @@
+    
+
+    
+
+            
+    
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<!-- 初期表示時のビューをセット -->
+    
+
+<!-- カレンダーの表示開始曜日 -->
+    
+
+<!-- HTTPアクセス時の操作(HTTP日付指定表示) -->
+    
+
+<!-- カレンダーの背景画像指定 -->
+    
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="http://papasan.mydns.jp/papacalendar/" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>PapaCalendar - Papasan's Home</title>
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/zope.css?bgcolor=black&bgopacity=75" type="text/css" />
+<link rel="stylesheet" href="/jquery/jquery-ui-css/smoothness/jquery-ui-1.8.11.custom.css" type="text/css" />
+<link rel="stylesheet" href="/jquery/jquery.cluetip.css" type="text/css" />
+<!--
+<link rel="stylesheet" href="/jquery/jquery.droppy.css" type="text/css" />
+-->
+
+<script src="/jquery/jquery-1.5.min.js" type="text/javascript"></script>
+<script src="/jquery/jquery-ui-1.8.11.custom.min.js" type="text/javascript"></script>
+<script src="/jquery/jquery.cookie.js" type="text/javascript"></script>
+<script src="/jquery/jquery.maximage.js" type="text/javascript"></script>
+<!--
+<script src="/jquery/jquery.droppy.js" type="text/javascript"></script>
+-->
+<script src="/jquery/jquery.hoverIntent.js" type="text/javascript"></script>
+<script src="/jquery/jquery.cluetip.js" type="text/javascript"></script>
+
+<script src="/papacalendar/fullcalendar_js?firsthour=current&minutes=15" type="text/javascript"></script>
+<script src="/papacalendar/gcal_js" type="text/javascript"></script>
+
+<!-- フォクすけ -->
+</head>
+
+
+
+<body style="margin:0 padding:0 background-color:transparent;">
+
+
+    <!-- ローディング画像と背景画像 -->
+    <span>
+        <img class='bgmaximage' alt='' src='/bgImages/bgKaho2.jpg' />
+<img class='loader' src='/bgImages/loading.gif' />
+<img class='bgmaximage' alt='' src='/bgImages/bgShibaJun.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgKaze.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/MihoSugiura.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/Marie02.png' />
+<img class='bgmaximage' alt='' src='/bgImages/Emiri04.png' />
+<img class='bgmaximage' alt='' src='/bgImages/bgKaho.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/postcard.png' />
+<img class='bgmaximage' alt='' src='/bgImages/bgUminosokohe.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgNemureNemure.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgMoonLightShadow.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgAnoHana.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgShibaJun2.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgHigashinosorani.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgNikotama.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bg2012Spring.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgSonnakigashita.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/Magic-Bullet-Looks.png' />
+<img class='bgmaximage' alt='' src='/bgImages/bgChuushuu.jpg' />
+<img class='bgmaximage' alt='' src='/bgImages/bgkaze2.jpg' />
+
+
+    </span>
+    
+    <!-- 背景画像不透明度調整 -->
+    <div id="adjust" class="adjust"></div>
+
+            <div id="banner">
+    <a href="/">
+        <img id="zope_logo" src="e58699e79c9f/web/banner1.png" style="border:none; position:absolute; left:0; width:725px; height:128px;" alt="Top Page" title="Top Page">
+    </a>
+
+    <span style="position:absolute; top:40px; left:60px; z-index:3; color:tomato; font-size:10px;">！！Firefox 推奨(Firefox recommendation)</span>
+
+    <div style="float:right; position:absolute; top:0; right:10px; height:17px; background-color:white; font-size:80%; border:1px solid lightgray; border-radius:0 0 0.5em 0.5em; padding:3px 6px;">
+
+            &nbsp;<a rel="nofollow" href="/login">ログイン</a>
+    
+    
+    
+        </div>
+
+    <div id="zopeSearchForm" style="float:right; position:absolute; top:41px; right:10px;">
+        <form id="searchForm">
+            <input id="searchKey" type="text" style="width:173px; height:16px; vertical-align:middle; display:inline; padding:0; color:gray; font-size:12px;" value="*" />
+            <button id="searchButton" type="button" style="vertical-align:middle; font-size:13px; text-align:center; width:100px; height:26px; padding:0 0 1px 0; display:inline; cursor:pointer;">イベント検索</button>
+        </form>
+    </div>
+</div>
+
+        <ul id="portal-globalnav">
+    <li class="plain" id="portaltab-index_html">
+        <a title="" href="http://papasan.mydns.jp">ホーム</a>
+    </li>
+
+    <li class="plain" id="portaltab-papablog">
+        <a title="メモがわりのブログ、まとめは資料置き場へ。" href="http://papasan.mydns.jp/papablog">PapaBlog</a>
+    </li>
+
+    <li class="plain" id="portaltab-movie">
+        <a title="" href="http://papasan.mydns.jp/movie">PapaMovie</a>
+    </li>
+
+    <li class="selected" id="portaltab-calendar">
+        <a title="jQuery FullCalendar のカスタマイズ版、イベント（行事）の登録などはダイアログから行います、ブログにもなりそう？" href="http://papasan.mydns.jp/calendar">PapaCalendar</a>
+    </li>
+
+    <li class="plain" id="portaltab-map">
+        <a title="GoogleMaps V3のお勉強を兼ねてPapaMapsを作ってみました。" href="http://papasan.mydns.jp/map">PapaMap</a>
+    </li>
+
+    <li class="plain" id="portaltab-map">
+        <a title="Music PhotoMovieとTutorial動画などの操作。" href="http://papasan.mydns.jp/papatube?lines=auto&bgopacity=100">PapaTube</a>
+    </li>
+
+    <li class="plain" id="portaltab-e8b387e69699">
+        <a title="新しいことを覚えられなくなってしまったおじさんの資料置き場" href="http://papasan.mydns.jp/e8b387e69699">資料</a>
+    </li>
+</ul>
+
+
+    
+
+    <!-- フォクすけ -->
+                <a href="http://spreadfirefox.jp/affiliates/018" target="_blank" title="Firefox ブラウザ無料ダウンロード" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://spreadfirefox.jp/affiliates/018/image'); _width:90px;_height:45px;_cursor:pointer;">
+            <img src="http://spreadfirefox.jp/affiliates/018/image" alt="Firefox ブラウザ無料ダウンロード" border="0" style="z-index:1; float:left; margin-left:1em; width:90px; height:45px; _display:none;" />
+        </a>
+    
+    <!-- 背景画像不透明度スライダー -->
+    <iframe scrolling="no" style="float:right; margin-right:10px; width:200px; height:25px" src="/sliders/slider"></iframe><br clear="all" />
+
+
+
+
+<script type="text/javascript">
+$(function() {
+    // 背景画像
+    jQuery('img.bgmaximage').maxImage({
+        isBackground: true,
+        slideShow: true,
+        slideShowTitle: false,
+        slideDelay: 60,
+        overflow: 'auto',
+        verticalAlign:'top'
+    });
+});
+</script>
+
+
+
+
+<style type="text/css">
+/*
+ * FullCalendar v1.5 Stylesheet
+ *
+ * Copyright (c) 2011 Adam Shaw
+ * Dual licensed under the MIT and GPL licenses, located in
+ * MIT-LICENSE.txt and GPL-LICENSE.txt respectively.
+ *
+ * Date: Sat Mar 19 18:59:37 2011 -0700
+ *
+ */
+
+
+.fc {
+	direction: ltr;
+	text-align: left;
+	}
+	
+.fc table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+	
+html .fc,
+.fc table {
+	font-size: 1em;
+	}
+	
+.fc td,
+.fc th {
+	padding: 0;
+	vertical-align: top;
+	}
+
+
+
+/* Header
+------------------------------------------------------------------------*/
+
+.fc-header td {
+	white-space: nowrap;
+	}
+
+.fc-header-left {
+	width: 25%;
+	text-align: left;
+	}
+	
+.fc-header-center {
+	text-align: center;
+	}
+	
+.fc-header-right {
+	width: 25%;
+	text-align: right;
+	}
+	
+.fc-header-title {
+	display: inline-block;
+	vertical-align: top;
+	}
+	
+.fc-header-title h2 {
+	margin-top: 0;
+	white-space: nowrap;
+	}
+	
+.fc .fc-header-space {
+	padding-left: 10px;
+	}
+	
+.fc-header .fc-button {
+	margin-bottom: 1em;
+	vertical-align: top;
+	}
+	
+/* buttons edges butting together */
+
+.fc-header .fc-button {
+	margin-right: -1px;
+	}
+	
+.fc-header .fc-corner-right {
+	margin-right: 1px; /* back to normal */
+	}
+	
+.fc-header .ui-corner-right {
+	margin-right: 0; /* back to normal */
+	}
+	
+/* button layering (for border precedence) */
+	
+.fc-header .fc-state-hover,
+.fc-header .ui-state-hover {
+	z-index: 2;
+	}
+	
+.fc-header .fc-state-down {
+	z-index: 3;
+	}
+
+.fc-header .fc-state-active,
+.fc-header .ui-state-active {
+	z-index: 4;
+	}
+	
+	
+	
+/* Content
+------------------------------------------------------------------------*/
+	
+.fc-content {
+	clear: both;
+	}
+	
+.fc-view {
+	width: 100%; /* needed for view switching (when view is absolute) */
+	overflow: hidden;
+	}
+	
+	
+
+/* Cell Styles
+------------------------------------------------------------------------*/
+
+.fc-widget-header,    /* <th>, usually */
+.fc-widget-content {  /* <td>, usually */
+	border: 1px solid #ccc;
+	}
+	
+.fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
+	background: #ffc;
+	}
+	
+.fc-cell-overlay { /* semi-transparent rectangle while dragging */
+	background: #9cf;
+	opacity: .2;
+	filter: alpha(opacity=20); /* for IE */
+	}
+	
+
+
+/* Buttons
+------------------------------------------------------------------------*/
+
+.fc-button {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	}
+	
+.fc-state-default { /* non-theme */
+	border-style: solid;
+	border-width: 1px 0;
+	}
+	
+.fc-button-inner {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	}
+	
+.fc-state-default .fc-button-inner { /* non-theme */
+	border-style: solid;
+	border-width: 0 1px;
+	}
+	
+.fc-button-content {
+	position: relative;
+	float: left;
+	height: 1.9em;
+	line-height: 1.9em;
+	padding: 0 .6em;
+	white-space: nowrap;
+	}
+	
+/* icon (for jquery ui) */
+	
+.fc-button-content .fc-icon-wrap {
+	position: relative;
+	float: left;
+	top: 50%;
+	}
+	
+.fc-button-content .ui-icon {
+	position: relative;
+	float: left;
+	margin-top: -50%;
+	*margin-top: 0;
+	*top: -50%;
+	}
+	
+/* gloss effect */
+	
+.fc-state-default .fc-button-effect {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	}
+	
+.fc-state-default .fc-button-effect span {
+	position: absolute;
+	top: -100px;
+	left: 0;
+	width: 500px;
+	height: 100px;
+	border-width: 100px 0 0 1px;
+	border-style: solid;
+	border-color: #fff;
+	background: #444;
+	opacity: .09;
+	filter: alpha(opacity=9);
+	}
+	
+/* button states (determines colors)  */
+	
+.fc-state-default,
+.fc-state-default .fc-button-inner {
+	border-style: solid;
+	border-color: #ccc #bbb #aaa;
+	background: #F3F3F3;
+	color: #000;
+	}
+	
+.fc-state-hover,
+.fc-state-hover .fc-button-inner {
+	border-color: #999;
+	}
+	
+.fc-state-down,
+.fc-state-down .fc-button-inner {
+	border-color: #555;
+	background: #777;
+	}
+	
+.fc-state-active,
+.fc-state-active .fc-button-inner {
+	border-color: #555;
+	background: #777;
+	color: #fff;
+	}
+	
+.fc-state-disabled,
+.fc-state-disabled .fc-button-inner {
+	color: #999;
+	border-color: #ddd;
+	}
+	
+.fc-state-disabled .fc-button-effect {
+	display: none;
+	}
+	
+	
+
+/* Global Event Styles
+------------------------------------------------------------------------*/
+	 
+.fc-event {
+	border-style: solid;
+	border-width: 0;
+	font-size: .85em;
+	cursor: default;
+	}
+	
+a.fc-event,
+.fc-event-draggable {
+	cursor: pointer;
+	}
+	
+a.fc-event {
+	text-decoration: none;
+	}
+	
+.fc-rtl .fc-event {
+	text-align: right;
+	}
+	
+.fc-event-skin {
+	border-color: #36c;     /* default BORDER color */
+	background-color: #36c; /* default BACKGROUND color */
+	color: #fff;            /* default TEXT color */
+	}
+
+.fc-event-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-style: solid;
+	border-width: 0;
+	}
+	
+.fc-event-time,
+.fc-event-title {
+	padding: 0 1px;
+	}
+	
+.fc .ui-resizable-handle { /*** TODO: don't use ui-resizable anymore, change class ***/
+	display: block;
+	position: absolute;
+	z-index: 99999;
+	overflow: hidden; /* hacky spaces (IE6/7) */
+	font-size: 300%;  /* */
+	line-height: 50%; /* */
+	}
+	
+	
+	
+/* Horizontal Events
+------------------------------------------------------------------------*/
+
+.fc-event-hori {
+	border-width: 1px 0;
+	margin-bottom: 1px;
+	}
+	
+/* resizable */
+	
+.fc-event-hori .ui-resizable-e {
+	top: 0           !important; /* importants override pre jquery ui 1.7 styles */
+	right: -3px      !important;
+	width: 7px       !important;
+	height: 100%     !important;
+	cursor: e-resize;
+	}
+	
+.fc-event-hori .ui-resizable-w {
+	top: 0           !important;
+	left: -3px       !important;
+	width: 7px       !important;
+	height: 100%     !important;
+	cursor: w-resize;
+	}
+	
+.fc-event-hori .ui-resizable-handle {
+	_padding-bottom: 14px; /* IE6 had 0 height */
+	}
+	
+	
+	
+/* Fake Rounded Corners (for buttons and events)
+------------------------------------------------------------*/
+	
+.fc-corner-left {
+	margin-left: 1px;
+	}
+	
+.fc-corner-left .fc-button-inner,
+.fc-corner-left .fc-event-inner {
+	margin-left: -1px;
+	}
+	
+.fc-corner-right {
+	margin-right: 1px;
+	}
+	
+.fc-corner-right .fc-button-inner,
+.fc-corner-right .fc-event-inner {
+	margin-right: -1px;
+	}
+	
+.fc-corner-top {
+	margin-top: 1px;
+	}
+	
+.fc-corner-top .fc-event-inner {
+	margin-top: -1px;
+	}
+	
+.fc-corner-bottom {
+	margin-bottom: 1px;
+	}
+	
+.fc-corner-bottom .fc-event-inner {
+	margin-bottom: -1px;
+	}
+	
+	
+	
+/* Fake Rounded Corners SPECIFICALLY FOR EVENTS
+-----------------------------------------------------------------*/
+	
+.fc-corner-left .fc-event-inner {
+	border-left-width: 1px;
+	}
+	
+.fc-corner-right .fc-event-inner {
+	border-right-width: 1px;
+	}
+	
+.fc-corner-top .fc-event-inner {
+	border-top-width: 1px;
+	}
+	
+.fc-corner-bottom .fc-event-inner {
+	border-bottom-width: 1px;
+	}
+	
+	
+	
+/* Reusable Separate-border Table
+------------------------------------------------------------*/
+
+table.fc-border-separate {
+	border-collapse: separate;
+	}
+	
+.fc-border-separate th,
+.fc-border-separate td {
+	border-width: 1px 0 0 1px;
+	}
+	
+.fc-border-separate th.fc-last,
+.fc-border-separate td.fc-last {
+	border-right-width: 1px;
+	}
+	
+.fc-border-separate tr.fc-last th,
+.fc-border-separate tr.fc-last td {
+	border-bottom-width: 1px;
+	}
+	
+.fc-border-separate tbody tr.fc-first td,
+.fc-border-separate tbody tr.fc-first th {
+	border-top-width: 0;
+	}
+	
+	
+
+/* Month View, Basic Week View, Basic Day View
+------------------------------------------------------------------------*/
+
+.fc-grid th {
+	text-align: center;
+	}
+	
+.fc-grid .fc-day-number {
+	float: right;
+	padding: 0 2px;
+	}
+	
+.fc-grid .fc-other-month .fc-day-number {
+	opacity: 0.3;
+	filter: alpha(opacity=30); /* for IE */
+	/* opacity with small font can sometimes look too faded
+	   might want to set the 'color' property instead
+	   making day-numbers bold also fixes the problem */
+	}
+	
+.fc-grid .fc-day-content {
+	clear: both;
+	padding: 2px 2px 1px; /* distance between events and day edges */
+	}
+	
+/* event styles */
+	
+.fc-grid .fc-event-time {
+	font-weight: bold;
+	}
+	
+/* right-to-left */
+	
+.fc-rtl .fc-grid .fc-day-number {
+	float: left;
+	}
+	
+.fc-rtl .fc-grid .fc-event-time {
+	float: right;
+	}
+	
+	
+
+/* Agenda Week View, Agenda Day View
+------------------------------------------------------------------------*/
+
+.fc-agenda table {
+	border-collapse: separate;
+	}
+	
+.fc-agenda-days th {
+	text-align: center;
+	}
+	
+.fc-agenda .fc-agenda-axis {
+	width: 50px;
+	padding: 0 4px;
+	vertical-align: middle;
+	text-align: right;
+	white-space: nowrap;
+	font-weight: normal;
+	}
+	
+.fc-agenda .fc-day-content {
+	padding: 2px 2px 1px;
+	}
+	
+/* make axis border take precedence */
+	
+.fc-agenda-days .fc-agenda-axis {
+	border-right-width: 1px;
+	}
+	
+.fc-agenda-days .fc-col0 {
+	border-left-width: 0;
+	}
+	
+/* all-day area */
+	
+.fc-agenda-allday th {
+	border-width: 0 1px;
+	}
+	
+.fc-agenda-allday .fc-day-content {
+	min-height: 34px; /* TODO: doesnt work well in quirksmode */
+	_height: 34px;
+	}
+	
+/* divider (between all-day and slots) */
+	
+.fc-agenda-divider-inner {
+	height: 2px;
+	overflow: hidden;
+	}
+	
+.fc-widget-header .fc-agenda-divider-inner {
+	background: #eee;
+	}
+	
+/* slot rows */
+	
+.fc-agenda-slots th {
+	border-width: 1px 1px 0;
+	}
+	
+.fc-agenda-slots td {
+	border-width: 1px 0 0;
+	background: none;
+	}
+	
+.fc-agenda-slots td div {
+	height: 20px;
+	}
+	
+.fc-agenda-slots tr.fc-slot0 th,
+.fc-agenda-slots tr.fc-slot0 td {
+	border-top-width: 0;
+	}
+
+.fc-agenda-slots tr.fc-minor th,
+.fc-agenda-slots tr.fc-minor td {
+	border-top-style: dotted;
+	}
+	
+.fc-agenda-slots tr.fc-minor th.ui-widget-header {
+	*border-top-style: solid; /* doesn't work with background in IE6/7 */
+	}
+	
+
+
+/* Vertical Events
+------------------------------------------------------------------------*/
+
+.fc-event-vert {
+	border-width: 0 1px;
+	}
+	
+.fc-event-vert .fc-event-head,
+.fc-event-vert .fc-event-content {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	overflow: hidden;
+	}
+	
+.fc-event-vert .fc-event-time {
+	white-space: nowrap;
+	font-size: 10px;
+	}
+	
+.fc-event-vert .fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	opacity: .3;
+	filter: alpha(opacity=30);
+	}
+	
+.fc .ui-draggable-dragging .fc-event-bg, /* TODO: something nicer like .fc-opacity */
+.fc-select-helper .fc-event-bg {
+	display: none\9; /* for IE6/7/8. nested opacity filters while dragging don't work */
+	}
+	
+/* resizable */
+	
+.fc-event-vert .ui-resizable-s {
+	bottom: 0        !important; /* importants override pre jquery ui 1.7 styles */
+	width: 100%      !important;
+	height: 8px      !important;
+	overflow: hidden !important;
+	line-height: 8px !important;
+	font-size: 11px  !important;
+	font-family: monospace;
+	text-align: center;
+	cursor: s-resize;
+	}
+	
+.fc-agenda .ui-resizable-resizing { /* TODO: better selector */
+	_overflow: hidden;
+	}
+
+
+/* カレンダースケルトン */
+#papacalendar {
+    background-color: rgba(0, 0, 0, 0);    /* カレンダーコンテナ背景色 */
+    color: white;
+    font-size: 80%;
+    font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+    margin: 5px 5px;
+    padding: 10px;
+    width: autopx;
+    }
+
+/* カレンダーヘッダ */
+.fc-header {
+    background-color: rgba(0, 0, 0, 0);
+    }
+
+/* カレンダーコンテンツ */
+.fc-content {
+    /* background-color: rgba(0, 0, 0, 0); */
+    background-image: url();
+}
+
+
+.fc-header-title h2 {
+    margin-top: 0;
+    white-space: nowrap;
+    font-weight: normal;
+    color: lightgray;
+    }
+
+.fc-widget-header .fc-agenda-divider-inner {
+    background-color: transparent;
+}
+
+.fc-state-highlight {
+    }
+
+.fc-today {
+    background-color: rgba(255, 255, 204, 0.5) !important;    /* 今日（クリーム色） */
+    }
+
+.fc-cell-overlay {
+    background-color: rgba(211, 211, 211, 0.25);
+    filter: alpha(opacity=25);
+    }
+
+.fc-state-disabled {
+    }
+
+.fc-event {
+    border-style: solid;
+    border-width: 1px;
+    font-size: 1.0em;
+    cursor: default;
+    overflow: hidden;
+    }
+
+/* 注意：fc-event-skinクラスは強力なので、無効にする。*/
+.fc-event-skin {
+	border-color: none;     /* default BORDER color */
+	background-color: none; /* default BACKGROUND color */
+	color: none;            /* default TEXT color */
+	}
+
+
+.fc-event-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-width: 0px;
+    text-align: left;
+    word-wrap: break-word;
+    overflow: hidden;
+    line-height: 1.2em;
+    }
+
+.fc-event-time {
+    /*border-bottom: 1px solid #aaa;*/
+    font-weight: bold;
+    overflow: hidden;
+    padding: 0 0.1em 0 2px;
+    }
+
+.fc-event-title {
+    line-height: 1.5em;
+    overflow: hidden;
+    padding: 0 0.5em 0 2px;
+    word-break: break-all;
+    }
+
+.fc .ui-resizable-handle {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    line-height: 100%;
+    }
+
+.fc-event-hori .ui-resizable-e {
+    background: white url("/papacalendar/images/arrowRight.gif") no-repeat 50% 50%;
+    margin: 0px;
+    top: 0px         !important;
+    right: 1px       !important;
+    width: 6px       !important;
+    height: 100%     !important;
+    cursor: e-resize;
+    border-left: 1px solid lightgray !important;
+    }
+
+.fc-allday {
+    background: white url("/papacalendar/images/arrowRightBlue.gif") no-repeat scroll 50% 50% !important;
+    }
+
+.fc-corner-left .fc-event-inner {
+    border-left-width: 0px;
+    }
+    
+.fc-corner-right .fc-event-inner {
+    border-right-width: 0px;
+    }
+    
+.fc-corner-top .fc-event-inner {
+    border-top-width: 0px;
+    }
+    
+.fc-corner-bottom .fc-event-inner {
+    border-bottom-width: 0px;
+    }
+
+.fc-grid .fc-today .fc-day-number {
+    color: tomato;
+    font-weight: bold;
+    }
+
+.fc-grid .fc-event-time {
+    font-weight: bold;
+    }
+
+.fc-agenda table {
+    border-collapse: separate;
+    -webkit-border-radius-bottomleft: 4px !important;
+    -moz-border-radius-bottomleft: 4px !important;
+    border-radius-bottomleft: 4px !important;
+    }
+
+.fc-agenda .fc-agenda-axis {
+    width: 30px;
+    padding: 0 4px;
+    vertical-align: middle;
+    text-align: right;
+    white-space: nowrap;
+    font-weight: normal;
+    }
+
+
+/* FullCalendar Issue 1075 */
+.fc-agenda-slots td div {
+    height: 40px !important;
+    }
+
+
+.fc-event-vert {
+    border-width: 0px 0px;
+    }
+
+.fc-event-vert .fc-event-time {
+    font-size: 1em;
+    white-space: nowrap;
+    }
+
+.fc-event-vert .ui-resizable-s {
+    background: white url("/papacalendar/images/arrowDown.gif") no-repeat 50% 50%;
+    bottom: 1px      !important;
+    width: 100%      !important;
+    height: 6px      !important;
+    overflow: hidden !important;
+    cursor: s-resize;
+    border-top: 1px solid lightgray !important;
+}
+
+
+/* ガイダンス（祝祭日よりも優先させるために、祝祭日の後方に置くこと。） */
+.pc-day {
+    border: 1px solid transparent;
+    padding: 0 5px !important;
+    position: relative;
+    z-index: 10;
+    }
+.pc-day:hover {
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0 5px;
+    }
+.pc-dayhover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.pc-week {
+    border: 1px solid transparent;
+    color: white;
+    padding: 0 5px !important;
+    position: absolute;
+    z-index: 10;
+    }
+.pc-week:hover {
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0 5px;
+    }
+.pc-weekhover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.pc-reminder {
+    height: 14px;
+    vertical-align: middle;
+    width: 14px;
+}
+
+.pc-sumi {
+    border: 1px solid orangered;
+    border-radius: 50%;
+    color: red;
+    font-weight: orangered;
+}
+
+.pc-icon {
+    vertical-align: middle;
+}
+
+.fc-grid .fc-other-month .fc-day-number {
+	opacity: 0.5;
+}
+
+
+/* カレンダー本体の文字と背景 */
+/* 日曜ヘッダ */
+th.fc-sun {
+    color: red;
+    background-color: rgba(255, 182, 193, 0.25);
+    }
+/* 日曜ディティール */
+td.fc-sun {
+    background-color: rgba(255, 182, 193, 0.25);
+}
+
+/* 土曜ヘッダ */
+th.fc-sat {
+    color: deepskyblue;
+    background-color: rgba(0, 0, 205, 0.25);
+    }
+/* 土曜ディティール */
+td.fc-sat {
+    background-color: rgba(0, 0, 205, 0.25);
+}
+
+/* 月曜から金曜　一括 */
+th.fc-mon,
+td.fc-mon,
+th.fc-tue,
+td.fc-tue,
+th.fc-wed,
+td.fc-wed,
+th.fc-thu,
+td.fc-thu,
+th.fc-fri,
+td.fc-fri {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* ヘッダ */
+/* ディティール */
+th.fc-mon {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+td.fc-mon {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+
+th.fc-tue {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+td.fc-tue {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+
+th.fc-wed {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+td.fc-wed {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+
+th.fc-thu {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+td.fc-thu {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+
+th.fc-fri {
+    background-color: rgba(0, 0, 0, 0.25);
+    }
+td.fc-fri {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.fc-grid {
+    color: lightgray;
+    }
+
+.fc-grid .fc-sun {
+    color: red;
+    }
+
+.fc-grid .fc-sat {
+    color: deepskyblue;
+}
+
+
+/* 祝祭日 */
+.pc-holiday {
+    color: red !important;
+    background-color: rgba(255, 182, 193, 0.25) !important;
+}
+
+
+/* カレンダー枠の角丸 TODO Firefox 13.0+ */
+.fc-border-separate tr.fc-last th.fc-first {
+    border-top-left-radius: 4px !important;
+    }
+
+.fc-border-separate tr.fc-last th.fc-last {
+    border-top-right-radius: 4px !important;
+    }
+
+.fc-border-separate tr.fc-last td.fc-first {
+    border-bottom-left-radius: 4px !important;
+    }
+
+.fc-border-separate tr.fc-last td.fc-last {
+    border-bottom-right-radius: 4px !important;
+    }
+
+.fc-border-separate tbody tr.fc-last th.fc-first {
+    border-bottom-left-radius: 4px !important;
+}
+
+
+
+
+/* 祝祭日 */
+.googleevents {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("images/icons/kokki_icon.gif");
+    background-repeat: no-repeat;
+    background-position: 2px 1.75px;
+    color: white;
+    padding-left: 18px;
+    }
+
+
+/* 定形イベント */
+
+/* 燃えるごみ */
+.gomiMoeruEvents {
+    background-color: rgba(255, 0, 0, 0.25);
+    background-image: url("images/icons/trash_icon.jpg");
+    background-repeat: no-repeat;
+    background-position: 4px 1px;
+    color: white;
+    padding-left: 18px;
+    }
+.gomiMoeruEvents a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+/* リサイクルごみ */
+.gomiRecycleEvents {
+    background-color: rgba(255, 165, 0, 0.25);
+    background-image: url("images/icons/trash_icon.jpg");
+    background-repeat: no-repeat;
+    background-position: 4px 1px;
+    color: white;
+    padding-left: 18px;
+    }
+.gomiRecycleEvents a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+/* 燃えないごみ */
+.gomiMoenaiEvents {
+    background-color: rgba(0, 0, 255, 0.25);
+    background-image: url("images/icons/trash_icon.jpg");
+    background-repeat: no-repeat;
+    background-position: 4px 1px;
+    color: white;
+    padding-left: 18px;
+    }
+.gomiMoenaiEvents a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+
+/* イベント */
+/* デフォルト */
+.papaevents {
+    background-color: rgba(0, 0, 0, 1.0);
+    color: white;
+    }
+.papaevents a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+/* 重要 */
+.papaevents_important {
+    background-color: rgba(255, 99, 71, 0.5);
+    color: white;
+    }
+.papaevents_important a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+/* 仕事 */
+.papaevents_job {
+    background-color: rgba(208, 180, 140, 0.5);
+    color: white;
+    }
+.papaevents_job a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+/* プライベート */
+.papaevents_private {
+    background-color: rgba(85, 107, 47, 0.5);
+    color: white;
+    }
+.papaevents_private a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+/* ToDo */
+.papaevents_todo {
+    background-color: rgba(100, 149, 237, 0.5);
+    color: white;
+    }
+.papaevents_todo a:link {
+    color: white;
+    text-decoration: underline;
+    }
+
+/* 済 */
+.papaevents_sumi {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    }
+.papaevents_sumi a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+
+
+
+/* ClueTip */
+#cluetip {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid lightgray;
+    border-radius: 5px !important;
+    cursor: move;
+    }
+
+#cluetip-title {
+    display: none !important;
+    }
+
+#cluetip-close {
+    float: right;
+    width: 30px;
+    font-size: 9px;
+    }
+
+#cluetip_link  {
+    font-size: 0.85em;
+    }
+
+#cluetip-close a {
+    color: lightgray;
+    }
+
+#cluetip_normal {
+    font-size: 0.85em;
+}
+
+
+
+
+/* 入力ダイアログ */
+div#events-contain {
+    width: 350px;
+    margin: 20px 0;
+    }
+
+div#events-contain table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+div#events-contain table td,
+div#users-contain table th {
+    border: 1px solid #eee;
+    padding: 0.6em 10px;
+    text-align: left;
+    }
+
+.dialog {
+    padding: 5px;
+    font-size: 60%;
+    text-align: left;
+    }
+
+label,
+input {
+    display: block;
+    }
+
+input.text {
+    margin-bottom: 10px;
+    width: 98% !important;
+    padding: 0.4em;
+    }
+
+input.start {
+    margin-bottom: 10px;
+    width: 47%;
+    padding: 0.4em;
+    }
+
+input.reminder {
+    margin-bottom: 10px;
+    width: 47%;
+    padding: 0.4em;
+    }
+
+input.end {
+    margin-bottom: 10px;
+    width: 47%;
+    padding: 0.4em;
+    }
+
+fieldset {
+    padding: 0;
+    border: 0;
+    margin-top: 1em;
+    }
+
+.ui-dialog {
+    background-image: url(stripe_images/stripe_black);
+    }
+
+.ui-dialog .ui-dialog-content {
+    height: 310px !important;
+}
+
+.ui-dialog .ui-state-error {
+    padding: 0.3em;
+    }
+
+.ui-dialog-buttonpane {
+    font-size: 62.5%;
+    }
+
+.ui-dialog .ui-dialog-title {
+    font-size: 80%;
+    }
+
+.validateTips {
+    border: 1px solid transparent;
+    padding: 0.3em;
+    }
+
+.dialogTags {
+    display: inline;
+    vertical-align: top;
+    margin-top: 0;
+    }
+
+textarea#dialogDesc {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    color: white;
+    height: 4em;
+    padding: 0.4em;
+    width: 98%;
+    }
+
+div#event_buttons {
+    height: 3em;
+    font-size: 12px;
+}
+
+.dialogDefault {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid gray;
+    color: black;
+    }
+
+.dialogImportant {
+    background-color: rgba(255, 99, 71, 0.75);
+    border: 1px solid gray;
+    color: white;
+    }
+
+.dialogJob {
+    background-color: rgba(208, 180, 140, 0.75);
+    border: 1px solid gray;
+    color: white;
+    }
+
+.dialogPrivate {
+    background-color: rgba(85, 107, 47, 0.75);
+    border: 1px solid gray;
+    color: white;
+    }
+
+.dialogTodo {
+    background-color: rgba(100, 149, 237, 0.75);
+    border: 1px solid gray;
+    color: white;
+    }
+
+.dialogSumi {
+    background-color: rgba(0, 0, 0, 1.0);
+    border: 1px solid red;
+    border-radius: 50%;
+    color: red;
+    font-weight: bold;
+    padding: 2px;
+    }
+
+#dialogIcon {
+    background-color;
+    display: none;
+    }
+
+#dialogIcons {
+    background-color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    }
+img.icon {
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin: 3px;
+    }
+img.icon:hover {
+    border: 1px solid tomato;
+    }
+
+.ui-widget-header {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    }
+
+.ui-dialog .ui-dialog-buttonpane {
+    background-image: none;
+    background-color: transparent;
+    border-width: 1px 0 0;
+    margin: 0.5em 0 0;
+    padding: 0.3em 1em 0.5em 0.4em;
+    text-align: left;
+}
+
+
+
+
+/* ポータルグローバルナビ(Calendar) */
+#portal-globalnav {
+    position: absolute;
+    width: 99.5%;
+    top: 88px;
+    left: 0;
+    background-color: rgba(2, 2, 2, 0.75);
+    border: 1px solid black;
+    border-radius: 0;
+    clear: both;
+    font-size: 80%;
+    height: 2.3em;
+    padding: 1px 1px 2px;
+    text-align: center;
+    }
+
+#portal-globalnav li {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    text-align: center;
+    }
+
+#portal-globalnav li a {
+    background-color: transparent;
+    border-right: 0.1em solid transparent;
+    display: inline-block;
+    padding: 9px 0 5.5px;
+    white-space: normal;
+    width: 13.7%;
+    }
+
+#portal-globalnav .selected a,
+#portal-glovalnav .selected a:hover,
+#portal-globalnav a:hover {
+    background-color: transparent;
+    color: tomato;
+}
+</style>
+
+
+
+
+<script type="text/javascript">
+$(function() {
+    // ログインユーザのフルネーム
+    var owner ="";
+    owner = $("#owner").text();
+
+    // ログインユーザーのロール
+    var managerRole = 0;
+
+    // JSONサーバー
+    var folder = "demo";
+
+    // ダイアログ用アイコンキャッシュ
+    var dialogIconsHtml = "";
+
+    var eventObj = {};
+
+    var gotoDate = '';
+    var gotoDateYMD;
+
+    var view = "month";
+
+    var date = new Date();
+    var y = date.getFullYear();
+    var m = date.getMonth();    // 月は0-11を返すので注意
+    var d = date.getDate();
+
+    // スロット開始時刻
+    var current = date.getHours();
+
+
+
+    // BEGIN PapaCalendarインスタンスの生成とオーバーライド
+    var papacalendar = $('#papacalendar').fullCalendar({
+
+        // 祝祭日、ごみの日のイベントを隠す。
+        loading: function(isLoading, view) {
+            if (!isLoading) {
+                $('#papacalendar')
+                                                        ;
+            };
+        },
+
+
+
+
+        // カレンダーのアスペクト比
+        aspectRatio: 1.618,    // 黄金比
+
+        // カレンダーの見出し部分のレイアウト設定。
+        header: {
+            right:  'month,agendaWeek,agendaDay',
+            center: 'title',
+            left:   'prev,next today'
+        },
+
+        titleFormat: {
+            month: 'yyyy年MMMM月',
+            week: "yyyy年MMMM月d日{ '-' [ MMMM月]d日}",
+            day: 'yyyy年MMMM月d日（ddd）'
+        },
+
+        columnFormat: {
+            month: 'ddd',
+            week: 'M/d（ddd）',
+            day: 'M/d（ddd）'
+        },
+/*      Papasan オーバーライドできないので、JSの方を変更する。
+        timeFormat: {
+            '': 'H:mm'
+        },
+*/
+        monthNames: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+
+        dayNamesShort: ['日','月','火','水','木','金','土'],
+
+        buttonText: {
+            today: '今日',
+            month: '月',
+            week: '週',
+            day: '日'
+        },
+
+        allDayText: '終日',
+
+        // 週View、日Viewのスロットの開始時刻
+        firstHour: current,
+
+        // スロットの単位時間（分）
+        slotMinutes: 15,
+
+        // イベントのデフォルト時間（分）
+        defaultEventMinutes: 60,
+
+        // スロットの時刻表示形式
+        axisFormat: 'H:mm',
+
+        // イベントの時刻表示形式
+        timeFormat: {
+            agenda: 'H:mm{ - H:mm}'
+        },
+
+        weekMode: 'variable',    // デフォルトでは６週固定だが、可変にする。
+
+        selectable: true,
+
+        selectHelper: true,
+
+        // イベントのドラグやリサイズを許可する。
+        editable: true,
+
+        defaultView: view,
+
+        // 週始まりの曜日指定（デフォルト:0（日曜））
+        firstDay: 0,
+
+
+
+        // イベントをHTTP経由で読み込む。
+        eventSources: [
+            {
+                url: '/jsonserver/papacalendar/' + folder + '/get_events',
+                className: "papaevents"
+            },
+            {
+                url: "http://www.google.com/calendar/feeds/ja.japanese%23holiday%40group.v.calendar.google.com/public/full/"
+            }
+        ],
+
+
+
+
+        // イベントを生成する。
+        events: function(start, end, callback) {
+            var events = [];
+
+            // ゴミのイベントは実当月分のみ表示。
+            // 燃えるゴミ（日曜）
+            var dates = getDayOfWeeks(y, m+1, 0);
+            $.each(dates, function(index, event) {
+                events.push({
+                    id: 9999999999001,
+                    title: "燃えるゴミ" ,
+                    start: event,
+                    allDay: true,
+                    className: "gomiMoeruEvents",
+                    editable: false
+                });
+            });
+
+            // 燃えるゴミ（水曜）
+            var dates = getDayOfWeeks(y, m+1, 3);
+            $.each(dates, function(index, event) {
+                events.push({
+                    id: 9999999999002,
+                    title: "燃えるゴミ" ,
+                    start: event,
+                    allDay: true,
+                    className: "gomiMoeruEvents",
+                    editable: false
+                });
+            });
+
+            // リサイクルゴミ
+            events.push({
+                id: 9999999999003,
+                title: "リサイクルゴミ",
+                start: getDayOfWeek(y, m+1, 2, 1),
+                allDay: true,
+                className: "gomiRecycleEvents",
+                editable: false
+            });
+
+            // 燃えないゴミ
+            events.push({
+                id: 9999999999004,
+                title: "燃えないゴミ",
+                start: getDayOfWeek(y, m+1, 4, 1),
+                allDay: true,
+                className: "gomiMoenaiEvents",
+                editable: false
+            });
+
+            callback(events);    // 配列eventsを返す。
+        },
+
+
+
+
+        // !!BEGIN コールバック関数の定義
+
+        // イベント登録
+        select: function(startDate, endDate, allDay, jsEvent, view) {
+            var classes = $(jsEvent.target).attr("class");
+
+            // 週番号クリックのときは何もしない。
+            if (classes.match(/pc-week/)) {
+                papacalendar.fullCalendar('unselect');    // select状態を解除する。
+                return;
+            };
+            // 日付クリックのときは何もしない。
+            if (classes.match(/pc-day/)) {
+                papacalendar.fullCalendar('unselect');    // select状態を解除する。
+                return;
+            };
+            // ダイアログの表示
+            entry_event(startDate, endDate, allDay);
+        },
+
+
+        // Papasan 追加 イベントダブルクリック時（未使用）
+        eventDblClick: function(calEvent, jsEvent, view) {
+/*
+            alert('Event: ' + calEvent.title);
+            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+            alert('View: ' + view.name);
+ 
+            // change the border color just for fun
+            $(this).css('border-color', 'red');
+*/
+        },
+
+
+        // イベント変更・貼付・削除
+        eventClick: function(event, jsEvent, view) {
+            if (event.className.toString().slice(0, 10) != "papaevents") {
+                return;
+            };
+
+            // 権限確認
+            if (event.owner && event.owner != owner) {
+                if (!managerRole) {
+                    return;
+                };
+            };
+            // ダイアログの表示
+            update_event(event);
+        },
+
+
+        // イベントの移動
+        eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view) {
+            // 権限確認
+            if (event.owner && event.owner != owner) {
+                if (!managerRole) {
+                    revertFunc();
+                    return;
+                };
+            };
+
+            var eventStartDate = event.start.getTime() / 1000;
+            if (event.end) {
+                var eventEndDate = event.end.getTime() / 1000;
+            };
+
+            if (event.reminder) {
+                var eventReminder = (event.reminder.getTime() / 1000) + (dayDelta * 86400) + (minuteDelta * 60);
+            } else {
+                var eventReminder = eventStartDate;
+            };
+
+            $.ajax({url: "/jsonserver/papacalendar/" + folder + "/change_event",
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    "id":        event.id,
+                    "title":     event.title,
+                    "start":     eventStartDate,
+                    "end":       eventEndDate,
+                    "reminder":  eventReminder,
+                    "allDay":    allDay,
+                    "className": event.className,
+                    "icon":      event.icon,
+                    "desc":      event.desc,
+                    "owner":     event.owner
+                },
+                success: function() {
+                },
+                error: function() {
+                    alert("!!移動に失敗しました。");
+                    revertFunc();
+                }
+            });
+        },
+
+
+        // イベントリサイズ
+        eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
+            // 権限確認
+            if (event.owner && event.owner != owner) {
+                if (!managerRole) {
+                    revertFunc();
+                    return;
+                };
+            };
+
+            var eventStartDate = event.start.getTime() / 1000;
+            if (event.end) {
+                var eventEndDate = event.end.getTime() / 1000;
+            } else {
+                var eventEndDate = eventStartDate;
+            };
+            if (event.reminder) {
+                var eventReminder = event.reminder.getTime() / 1000;
+            } else {
+                var eventReminder = eventStartDate;
+            };
+
+            $.ajax({url: "/jsonserver/papacalendar/" + folder + "/change_event",
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    "id":        event.id,
+                    "title":     event.title,
+                    "start":     eventStartDate,
+                    "end":       eventEndDate,
+                    "reminder":  eventReminder,
+                    "allDay":    event.allDay,
+                    "className": event.className,
+                    "icon":      event.icon,
+                    "desc":      event.desc,
+                    "owner":     event.owner
+                },
+                success: function() {
+                },
+                error: function() {
+                    alert("!!リサイズに失敗しました。");
+                    revertFunc();
+                }
+            });
+        },
+
+
+        // ツールチップ表示
+        eventMouseover: function(event, jsEvent, view) {
+            // 要約の有無と取得、リンクの有無
+            var id = event.id;
+            var desc = event.desc;
+            desc = desc.replace(/\n/g, "<br>");
+
+            var desc_link = 0;
+            if (desc) {
+                if (desc.indexOf("<a href=") != -1) {
+                    desc_link = 1;
+                };
+            } else {
+                return;
+            };
+
+            var desc_html = "<div id='" + id + "' style='opacity:1.0; filter: alpha(opacity=100); display:inline-block'>" + desc + "</div>";
+            $("#cluetip_desc").html(desc_html);
+
+            if (desc_link) {
+                $("a.cluetip_desc").cluetip({
+                    ajaxCache:     true,
+                    closePosition: "bottom",
+                    cursor:        "pointer",
+                    dropShadow:    false,
+                    height:        "auto",
+                    hideLocal:     true,
+                    local:         true,
+                    positionBy:    "bottomTop",
+                    sticky:        true,
+                    width:         320,
+                    onShow: function(ct, c) {
+                        //要約のチップ幅をセットする。
+                        try {
+                            var tip_width = parseInt(document.getElementById("cluetip-inner").children[0].children[0].width);
+                            if (!tip_width) {
+                                var tip_width = parseInt(document.getElementById("cluetip-inner").children[0].width);
+                            };
+                            $("#cluetip").width(tip_width);
+                        } catch(e) {
+                            return;
+                        };
+                    }
+                });
+            } else {
+                $("a.cluetip_desc").cluetip({
+                    positionBy: "bottomTop",
+                    dropShadow: false,
+                    local:      true,
+                    hideLocal:  true,
+                    sticky:     false,
+                    cursor:     "pointer",
+                    height:     "auto",
+                    ajaxCache:  true,
+                    onShow: function(ct, c) {
+                        //要約のチップ幅をセットする。
+                        try {
+                            var tip_width = parseInt(document.getElementById("cluetip-inner").children[0].children[0].width);
+                            if (!tip_width) {
+                                var tip_width = parseInt(document.getElementById("cluetip-inner").children[0].width);
+                            };
+                            $("#cluetip").width(tip_width);
+                        } catch(e) {
+                            return;
+                        };
+                    }
+                });
+            };
+            $("div#cluetip").draggable({cursor:"move", opacity:0.5});
+        },
+
+
+        // カレンダーがロードされた時や、カレンダー表示に変化があった時。
+        viewDisplay: function(view) {
+            var view = view.name;
+//            $(".pc-other-month").children().children().children().attr("style", "opacity: 0.5;");    // 月Viewにて、fc-other-monthクラスがあると、クリックイベントを取得できないため、独自のpc-other-monthを付与している。
+
+            // 週番号にカーソルが乗ったとき。
+            $(".pc-week").mouseover(function(event) {
+                $(this).parents("tr").addClass("pc-weekhover");
+            });
+
+            // 週番号からカーソルが外れたとき。
+            $(".pc-week").mouseout(function(event) {
+                $(this).parents("tr").removeClass("pc-weekhover");
+            });
+
+            // 週番号がクリックされたとき。
+            $(".pc-week").click(function(event) {
+                var classes = $(event.target).parent().children("div").children("div.fc-day-number").children("span").attr("class");
+                var date = classes.match(/\d*-\d*-\d*/);
+
+                if (date) {
+                    papacalendar.fullCalendar("changeView", "agendaWeek");    // 注意 changeViewをgotoDateより先に実行すること。
+                    var dateHover = date[0].split("-");
+                    papacalendar.fullCalendar("gotoDate", dateHover[0], parseInt(dateHover[1]) - 1, dateHover[2]);
+                };
+            });
+
+
+
+            // 日付にカーソルが乗ったとき。
+            $(".pc-day").mouseover(function(event) {
+                if (view == "month") {
+                    $(event.target).parents("td").addClass("pc-dayhover");
+                } else {
+                    if (view == "agendaWeek") {
+                        $(event.target).parents("th").addClass("pc-dayhover");
+                        var classes = $(event.target).parents("th").attr("class");
+                        var col = classes.match(/fc-col\d*/);
+                        if (col) {
+                            $(event.target).parents("table").children("tbody").children().children("td." + col[0]).addClass("pc-dayhover");
+                        };
+                    };
+                };
+            });
+
+            // 日付からカーソルが外れたとき。
+            $(".pc-day").mouseout(function(event) {
+                if (view == "month") {
+                    $(event.target).parents("td").removeClass("pc-dayhover");
+                } else {
+                    if (view == "agendaWeek") {
+                        $(event.target).parents("th").removeClass("pc-dayhover");
+                        var classes = $(event.target).parents("th").attr("class");
+                        var col = classes.match(/fc-col\d*/);
+                        if (col) {
+                            $(event.target).parents("table").children("tbody").children().children("td." + col[0]).removeClass("pc-dayhover");
+                        };
+                    };
+                };
+            });
+
+            // 日付がクリックされたとき。
+            $(".pc-day").click(function(event) {
+                var classes = $(event.target).attr("class");
+                var date = classes.match(/\d*-\d*-\d*/);
+                if (date) {
+                    papacalendar.fullCalendar("changeView", "agendaDay");    // 注意 changeViewをgotoDateより先に実行すること。
+                    var dateHover = date[0].split("-");
+                    papacalendar.fullCalendar("gotoDate", dateHover[0], parseInt(dateHover[1]) - 1, dateHover[2]);
+                };
+            });
+        }
+    });
+    // END PapaCalendarインスタンスの生成とオーバーライド
+
+
+
+
+    // URLに日付が指定されたとき。
+    if (gotoDate) {
+        gotoDateYMD = gotoDate.split("-");
+        papacalendar.fullCalendar("gotoDate", gotoDateYMD[0], gotoDateYMD[1] - 1, gotoDateYMD[2]);    // HTTP日付指定表示
+    } else {
+        papacalendar.fullCalendar("gotoDate", y, m, d);    // デフォルト（本日）表示
+    };
+
+
+    // ダイアログ用アイコンの先行取得
+    if (!dialogIconsHtml) {
+        get_dialog_icons();
+    };
+
+
+
+
+    // PapaCalendar用関数
+
+    // イベントダイアログアイコンの取得
+    function get_dialog_icons() {
+        $.ajax({url: "/papacalendar/images/icons/get_icons",
+            type: 'post',
+            dataType: 'text',
+            success: function(html) {
+                dialogIconsHtml = html;
+            },
+            error: function() {
+                updateTips("!!アイコンの取得に失敗しましたが、処理を続行します。");
+            }
+        });
+    };
+
+
+    // イベント登録ダイアログ表示
+    function entry_event(startDate, endDate, allDay) {
+        $("#ui-dialog-title-dialog-form").text("イベント登録");
+        $(".ui-button").eq(0).css("display", "none");    // 削除ボタンを非表示。
+        $(".ui-button").eq(1).css("display", "inline");    // 中止ボタンを表示。
+        $(".ui-button").eq(2).css("display", "none");    // 貼付ボタンを非表示。
+        $(".ui-button").eq(3).css("display", "none");    // 変更ボタンを非表示。
+        $(".ui-button").eq(4).css("display", "inline").addClass("ui-state-focus");    // 登録ボタンを表示。
+        $("input#start").val($.fullCalendar.formatDate(startDate, 'yyyy-MM-dd HH:mm'));
+        $("input#end").val($.fullCalendar.formatDate(endDate, 'yyyy-MM-dd HH:mm'));
+        $("input#reminder").val($.fullCalendar.formatDate(startDate, 'yyyy-MM-dd HH:mm'));
+        $("input#reminder").css("color", "gray");
+
+        $("input#dialogIcon").val("");    // ダイアログキャッシュクリア
+        document.getElementById("dialogIcons").innerHTML = dialogIconsHtml;
+        $("img.icon").bind("click", function(event) {
+            $("input#dialogIcon").val($(event.target).attr("src"));
+        });
+
+        document.getElementById("dialogDesc").value = "";
+        $("#dialog-form").dialog("open");
+    };
+
+
+    // イベント登録要求 JSONサーバー
+    function post_event() {
+        var dialogTitle = document.calendarDialog.title.value;
+        var dialogStartDate = document.calendarDialog.start.value;
+        var dialogEndDate = document.calendarDialog.end.value;
+        var dialogReminder = document.calendarDialog.reminder.value;
+
+        if (dialogStartDate.slice(11) == "00:00" && dialogEndDate.slice(11) == "00:00") {
+            var dialogAllDay = true;
+        } else {
+            var dialogAllDay = false;
+        };
+
+        var eventStartDate = $.fullCalendar.parseDate(dialogStartDate);
+        var eventEndDate = $.fullCalendar.parseDate(dialogEndDate);
+        var eventReminder = $.fullCalendar.parseDate(dialogReminder);
+
+        var dialogTag = "";
+        $("form#calendarDialog input:radio").each(function() {
+            (this.checked == true) ? dialogTag = $(this).val() : null;
+        });
+
+        var dialogIcon = $("#dialogIcon").val();
+
+        var dialogDesc = $("#dialogDesc").val();
+        dialogDesc = dialogDesc.replace(/\r\n?/g, "\n");
+
+        var date = new Date();
+        var eventId = date.getTime();
+        $.ajax({url: "/jsonserver/papacalendar/" + folder + "/post_event",
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "id":        eventId,
+                "title":     dialogTitle,
+                "start":     eventStartDate.getTime(),
+                "end":       eventEndDate.getTime(),
+                "reminder":  eventReminder.getTime(),
+                "allDay":    dialogAllDay,
+                "className": dialogTag,
+                "icon":      dialogIcon,
+                "desc":      dialogDesc,
+                "owner":     owner
+            },
+            success: function() {
+                $('#papacalendar').fullCalendar('renderEvent',
+                    {
+                        id:        eventId,
+                        title:     dialogTitle,
+                        start:     dialogStartDate,
+                        end:       dialogEndDate,
+                        reminder:  dialogReminder,
+                        allDay:    dialogAllDay,
+                        className: dialogTag,
+                        icon:      dialogIcon,
+                        desc:      dialogDesc,
+                        owner:     owner
+                    },
+                    false    // サーバからはページ表示時のみイベント表示する。
+                );
+                $("#dialog-form").dialog("close");
+            },
+            error: function() {
+                updateTips("!!登録に失敗しました、中止ボタンをクリックして下さい。");
+            }
+        });
+        papacalendar.fullCalendar('unselect');    // select状態を解除する。
+    };
+
+
+    // ダイアログ入力チェック
+    function validator() {
+        var bValid = true;
+        allFields.removeClass("ui-state-error");
+        bValid = bValid && checkLength( title, "タイトルエラー", 1, 200 );
+        bValid = bValid && checkLength( start, "開始日時エラー", 0, 16 );
+        bValid = bValid && checkLength( end, "終了日時エラー", 0, 16 );
+        bValid = bValid && checkLength( reminder, "リマインダーエラー", 0, 16 );
+        bValid = bValid && checkRegexp( title, /.*/i, "必須だかんねっ！！");
+        bValid = bValid && checkRegexp( start, /.*$/i, "例 2011-03-01 15:00");
+        bValid = bValid && checkRegexp( end, /.*$/i, "例 2011-03-01");
+        bValid = bValid && checkRegexp( reminder, /.*$/i, "例 2011-03-01 14:30");
+        return bValid;
+    };
+
+
+    // イベント変更・貼付・削除ダイアログ表示
+    function update_event(event) {
+        // ダイアログの設定
+        $("input.dialogTags input:radio").val([event.className]);
+        $("button.ui-button").removeClass("ui-state-focus");
+        $("#ui-dialog-title-dialog-form").text("イベント変更");
+        $(".ui-button").eq(0).css("display", "inline");    // 削除ボタンを表示。
+        $(".ui-button").eq(1).css("display", "inline");    // 中止ボタンを表示。
+        $(".ui-button").eq(2).css("display", "inline");    // 貼付ボタンを表示。
+        $(".ui-button").eq(3).css("display", "inline").addClass("ui-state-focus");    // 変更ボタンを表示。
+        $(".ui-button").eq(4).css("display", "none");    // 登録ボタンを非表示。
+
+        $("input#title").val(event.title);
+        $("input#start").val($.fullCalendar.formatDate(event.start, 'yyyy-MM-dd HH:mm'));
+
+        if (!event.end) {
+            $("input#end").val($.fullCalendar.formatDate(event.start, 'yyyy-MM-dd HH:mm'));
+        } else {
+            $("input#end").val($.fullCalendar.formatDate(event.end, 'yyyy-MM-dd HH:mm'));
+        };
+
+        // リマインダー
+        if (event.reminder) {
+            $("input#reminder").val($.fullCalendar.formatDate(event.reminder, 'yyyy-MM-dd HH:mm'));
+        } else {
+            $("input#reminder").val($.fullCalendar.formatDate(event.start, 'yyyy-MM-dd HH:mm'));
+        };
+
+        if (event.reminder && event.reminder < event.start) {
+            $("input#reminder").css("color", "tomato");
+        } else {
+            $("input#reminder").css("color", "gray");
+        };
+
+        $("input[name=dialogTags]").filter(function() {
+            return ($(this).val() == event.className)}).attr("checked", true);
+
+        $("#dialogIcon").val(event.icon);
+
+        document.getElementById("dialogIcons").innerHTML = dialogIconsHtml;
+        $("img.icon").bind("click", function(event) {
+            $("input#dialogIcon").val($(event.target).attr("src"));
+        });
+
+        $("#dialogDesc").val(event.desc);
+
+        eventObj = event;    // Eventが発生したイベントのオブジェクトを渡す。
+        $("#dialog-form").dialog("open");
+    };
+
+
+    // イベント変更
+    function change_event(event) {
+        var dialogTitle = document.calendarDialog.title.value;
+        var dialogStartDate = document.calendarDialog.start.value;
+        var dialogEndDate = document.calendarDialog.end.value;
+        var dialogReminder = document.calendarDialog.reminder.value;
+
+        if (dialogStartDate.slice(11) == "00:00" && dialogEndDate.slice(11) == "00:00") {
+            var dialogAllDay = true;
+        } else {
+            var dialogAllDay = false;
+        };
+
+        var eventStartDate = $.fullCalendar.parseDate(dialogStartDate);
+        var eventEndDate = $.fullCalendar.parseDate(dialogEndDate);
+        var eventReminder = $.fullCalendar.parseDate(dialogReminder);
+
+        var dialogTag = "";
+        $("form#calendarDialog input:radio").each(function() {
+            (this.checked == true) ? dialogTag = $(this).val() : null;
+        });
+
+        var dialogIcon = $("#dialogIcon").val();
+
+        var dialogDesc = $("#dialogDesc").val();
+        dialogDesc = dialogDesc.replace(/\r\n?/g, "\n");
+
+        $.ajax({url: "/jsonserver/papacalendar/" + folder + "/change_event",
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "id":        event.id,
+                "title":     dialogTitle,
+                "start":     eventStartDate.getTime(),
+                "end":       eventEndDate.getTime(),
+                "reminder":  eventReminder.getTime(),
+                "allDay":    dialogAllDay,
+                "className": dialogTag,
+                "icon":      dialogIcon,
+                "desc":      dialogDesc,
+                "owner":     owner
+            },
+            success: function() {
+                event.title = dialogTitle;
+                event.start = dialogStartDate;
+                event.end = dialogEndDate;
+                event.reminder = dialogReminder;
+                event.allDay = dialogAllDay;
+                event.className = dialogTag;
+                event.icon = dialogIcon;
+                event.desc = dialogDesc;
+                event.owner = owner;
+
+                $("#papacalendar").fullCalendar("updateEvent",event);
+                $("#dialog-form").dialog("close");
+            },
+            error: function() {
+                updateTips("!!変更に失敗しました、中止ボタンをクリックして下さい。");
+            }
+        });
+        papacalendar.fullCalendar('unselect');    // select状態を解除する。
+    };
+
+
+    // イベント貼付
+    function paste_event() {
+        var dialogTitle = document.calendarDialog.title.value;
+        var dialogStartDate = document.calendarDialog.start.value;
+        var dialogEndDate = document.calendarDialog.end.value;
+        var dialogReminder = document.calendarDialog.reminder.value;
+
+        if (dialogStartDate.slice(11) == "00:00" && dialogEndDate.slice(11) == "00:00") {
+            var dialogAllDay = true;
+        } else {
+            var dialogAllDay = false;
+        };
+
+        var eventStartDate = $.fullCalendar.parseDate(dialogStartDate);
+        var eventEndDate = $.fullCalendar.parseDate(dialogEndDate);
+        var eventReminder = $.fullCalendar.parseDate(dialogReminder);
+
+        var dialogTag = "";
+        $("form#calendarDialog input:radio").each(function() {
+            (this.checked == true) ? dialogTag = $(this).val() : null;
+        });
+
+        var dialogIcon = $("#dialogIcon").val();
+
+        var dialogDesc = $("#dialogDesc").val();
+        dialogDesc = dialogDesc.replace(/\r\n?/g, "\n");
+
+        var date = new Date();
+        var eventId = date.getTime();
+        $.ajax({url: "/jsonserver/papacalendar/" + folder + "/post_event",
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "id":        eventId,
+                "title":     dialogTitle,
+                "start":     eventStartDate.getTime(),
+                "end":       eventEndDate.getTime(),
+                "reminder":  eventReminder.getTime(),
+                "allDay":    dialogAllDay,
+                "className": dialogTag,
+                "icon":      dialogIcon,
+                "desc":      dialogDesc,
+                "owner":     owner
+            },
+            success: function() {
+                $('#papacalendar').fullCalendar('renderEvent',
+                    {
+                        id:        eventId,
+                        title:     dialogTitle,
+                        start:     dialogStartDate,
+                        end:       dialogEndDate,
+                        reminder:  dialogReminder,
+                        allDay:    dialogAllDay,
+                        className: dialogTag,
+                        icon:      dialogIcon,
+                        desc:      dialogDesc,
+                        owner:     owner
+                    },
+                    false    // サーバからはページ表示時のみイベント表示する。
+                );
+                $("#dialog-form").dialog("close");
+            },
+            error: function() {
+                updateTips("!!貼付に失敗しました、中止ボタンをクリックして下さい。");
+            }
+        });
+        papacalendar.fullCalendar('unselect');    // select状態を解除する。
+    };
+
+
+    // イベント削除
+    function remove_event(event) {
+        $.ajax({url: "/jsonserver/papacalendar/" + folder + "/remove_event",
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "id": event.id,
+            },
+            success: function() {
+                papacalendar.fullCalendar("removeEvents", event.id);
+                $("#dialog-form").dialog("close")
+            },
+            error: function() {
+                updateTips("!!削除に失敗しました、中止ボタンをクリックして下さい。");
+            }
+        });
+    };
+
+
+    // 週View 日付クリックにて日View表示（週ボタンにバインド）
+    $("span.fc-button-agendaWeek").click(function() {
+        $("th.fc-widget-header").css("cursor", "pointer").click(function(event) {
+            var year = $("span.fc-header-title").text().slice(0, 4);
+            var date = $(event.target).text().slice(0, -3).split("/");
+            var month = date[0];
+            var day = date[1]
+            papacalendar.fullCalendar("gotoDate", year, parseInt(month)-1, day);
+            papacalendar.fullCalendar("changeView", "agendaDay");
+        })
+    });
+
+
+    // イベント検索
+    $("#searchButton").click(function() {
+        var searchKey = $("form#searchForm input:text").val();
+        $.ajax({
+            url: "/jsonserver/papacalendar/" + folder + "/search_events",
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "key": searchKey
+            },
+            success: function(results) {
+                var html = "";
+
+                if (!results.length) {
+                    html = "<p style='margin:0 1em; font-size:12px;'><font color='tomato'>!!該当するイベントはありません。カレンダーに戻るには、ブラウザの再読み込みボタンをクリックしてください。</font></p>";
+                    $("#contents").html(html);
+                    return;
+                };
+
+                html += "<p style='margin:0 1em; font-size:12px; color:white;'>!!該当イベントが <font color='tomato'>" + results.length + "</font>件 ありました。カレンダーに戻るには、ブラウザの再読み込みボタンをクリックしてください。</p>"; 
+                html += "<ol>";
+
+                $.each(results, function(index, result) {
+                    html += "<li style='margin-bottom:1em; margin-right:1em;'><b>" +
+                        result.start + " " +
+                        "<a href='/papacalendar?folder=" + folder + "&date=" +
+                        result.start.slice(0, 10) + "&calendar_width=auto&view=week'>" +
+                        result.title + "</a></b><br>" +
+                        result.desc +
+                        "</li><div style='clear:both; height:1em;'></div>";
+                });
+
+                html += "</ol>";
+                $("#contents").html(html);
+            },
+            error: function() {
+                alert("!!検索に失敗しました。");
+            }
+        });
+    });
+
+
+
+
+    // 任意月の第n曜日のDateオブジェクトを返す。
+    // year: 年YYMMDD
+    // month: 月(1 から 12)
+    // number: 何番目の曜日か、第1曜日なら1。第3曜日なら3
+    // dayOfWeek: 曜日。0から6までの数字で、日曜から土曜を指定する
+    function getDayOfWeek(year, month, number, dayOfWeek) {
+        var firstDt = new Date(year, month - 1, 1);
+        var firstDayOfWeek = firstDt.getDay();    // 指定した年月の1日の曜日を取得
+        var day = dayOfWeek - firstDayOfWeek + 1;
+        if (day <= 0) {
+            day += 7;    // 1週間を足す
+        };
+        var dt = new Date(year, month - 1, day);
+        var msTime = dt.getTime();
+        msTime += (86400000 * 7 * (number - 1));    // n曜日まで1週間を足し込み
+        dt.setTime(msTime);
+        return dt;
+    };
+
+    // 任意月の任意曜日のDateオブジェクト全てを返す。
+    function getDayOfWeeks(year, month, dayOfWeek) {
+        var dates = [];
+        for (i=1; i<=5; i++) {
+            var date = getDayOfWeek(year, month, i, dayOfWeek);
+            if (date.getMonth() == month-1) {
+                dates.push(date);
+            };
+        };
+        return dates;
+    };
+
+
+    // ダイアログ設定
+    // ダイアログ
+    $("#dialog:ui-dialog").dialog("destroy");
+    var title = $("#title"),
+        start = $("#start"),
+        end = $("#end"),
+        reminder = $("#reminder"),
+        allFields = $( [] ).add( title ).add( start ).add( end ),
+        tips = $(".validateTips");
+
+
+    function updateTips( t ) {
+        tips
+            .text( t )
+            .addClass("ui-state-highlight");
+        setTimeout(function() {
+            tips.removeClass("ui-state-highlight", 1500 );
+        }, 500 );
+    };
+
+
+    function checkLength( o, n, min, max ) {
+        if ( o.val().length > max || o.val().length < min ) {
+            o.addClass("ui-state-error");
+            updateTips(n);
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+
+    function checkRegexp( o, regexp, n ) {
+        if ( !( regexp.test( o.val() ) ) ) {
+            o.addClass("ui-state-error");
+            updateTips( n );
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+
+    $("#dialog-form").dialog({
+        autoOpen: false,
+        height: 360,
+        width: 450,
+        modal: true,
+        buttons: {
+            "削除": function() {
+                remove_event(eventObj);
+            },
+            "中止": function() {
+                $(this).dialog("close");
+            },
+            "貼付": function() {
+                if (validator()) {
+                    paste_event(eventObj)
+                };
+            },
+            "変更": function() {
+                if (validator()) {
+                    change_event(eventObj)
+                };
+            },
+            "登録": function() {
+                if (validator()) {
+                    post_event();
+                };
+            }
+        },
+
+        close: function() {
+            allFields.val("").removeClass("ui-state-error");
+        }
+    });
+});
+</script>
+
+
+
+
+<div id="contents" style="color:white;">
+    <div id="papacalendar"></div>
+</div>
+
+
+<div id="dialog-form" class="dialog" title="イベント登録"  style="display: none;">
+    <div class="validateTips" style="color:tomato;">タイトルは必須だからねっ！！</div>
+    <form id="calendarDialog" name="calendarDialog">
+    <fieldset>
+        <label for="title" style="color:tomato;">タイトル</label>
+        <input type="text" name="title" id="title" value="" class="text ui-widget-content ui-corner-all" />
+
+        <table style="width:100%;">
+        <tr>
+        <td style="padding:0;">
+        <label for="start">開始日時</label>
+        <input style="width:10em;" type="text" name="start" id="start" value="" class="start ui-widget-content ui-corner-all" />
+        </td>
+
+        <td style="padding:0;">
+        <label for="end">終了日時</label>
+        <input style="width:10em;" type="text" name="end" id="end" value="" class="end ui-widget-content ui-corner-all" />
+        </td>
+
+        <td style="padding:0;">
+        <label class="reminder" for="reminder">リマインダー</label>
+        <input style="width:10em;" type="text" name="reminder" id="reminder" value="" class="reminder ui-widget-content ui-corner-all" />
+        </td>
+        </tr>
+        </table>
+
+        <label for="tag">タグ</label>
+        <div id="dialogTags">
+            <input type="radio" class="dialogTags" name="dialogTags" value="papaevents" checked="checked"><span class="dialogDefault">デフォルト</span></input>
+            <input type="radio" class="dialogTags" name="dialogTags" value="papaevents_important"><span class="dialogImportant">重要</span></input>
+            <input type="radio" class="dialogTags" name="dialogTags" value="papaevents_job"><span class="dialogJob">仕事</span></input>
+            <input type="radio" class="dialogTags" name="dialogTags" value="papaevents_private"><span class="dialogPrivate">プライベート</span></input>
+            <input type="radio" class="dialogTags" name="dialogTags" value="papaevents_todo"><span class="dialogTodo">ToDo</span></input>
+            <input type="radio" class="dialogTags" name="dialogTags" value="papaevents_sumi"><span class="dialogSumi">済</span></input>
+        </div><br>
+
+        <label for="icon">アイコン</label>
+        <input id="dialogIcon" type="text" value="" />
+        <div id="dialogIcons"></div><br />
+
+        <label for="title">要約</label>
+        <textarea id="dialogDesc"></textarea><br />
+    </fieldset>
+    </form>
+</div>
+
+
+<!-- Tip表示用キャッシュ -->
+<div id="cluetip_desc" style="display: none;"></div>
+
+
+<!-- 非表示用のボタン -->
+<div id="event_buttons" style="text-align:right; margin:1em; 10px 0 0">
+    <button id="nogoogle" style="cursor:pointer; font-size:80%;">祝祭日を非表示</button>
+    <button id="notrash" style="cursor:pointer; font-size:80%;">ゴミ出しを非表示</button>
+</div>
+
+<script type="text/javascript">
+    $("button#nogoogle").click(function() {
+        $("#papacalendar").fullCalendar("removeEvents", 9999999999000);
+    });
+
+    $("button#notrash").click(function() {
+        $("#papacalendar").fullCalendar("removeEvents", 9999999999001)
+                          .fullCalendar("removeEvents", 9999999999002)
+                          .fullCalendar("removeEvents", 9999999999003)
+                          .fullCalendar("removeEvents", 9999999999004);
+    });
+</script>
+
+<!-- Ploneフッター部 -->
+    <!-- フッターの位置を固定する。 -->
+<img id="position" style="width:1px; height:1px;" src="dot.png" />
+
+<script type="text/javascript">
+$(document).ready(function() {
+            var hosei = 500;
+    
+    var windowHeight = window.innerHeight;
+    var footerPosition = document.getElementById("position").offsetTop;
+    var imageHeight = windowHeight - footerPosition - hosei;
+    document.getElementById("position").style.height = imageHeight + "px";
+    $("#footerposition").text(imageHeight);
+});
+</script>
+
+
+<div style="font-size:65%; background-color:transparent;">
+    <div class="cell width-full position-0"></div>
+    <div class="colophonWrapper"></div>
+
+    <ul style="margin-top:0; padding-left:0;">
+        <li id="siteaction-contact" style="display:inline; margin-left:0px; line-height:1.5em;">
+            <a  style="cursor:pointer; position:relative; left:3.25em; bottom:-3.5em; color:tomato; font-size:100%; font-weight:normal; z-index:2;" class="link-overlay" accesskey="9" title="Papasanへのご質問や連絡。" href="http://papasan.mydns.jp/contact-info" rel="#pb_2">お問い合わせ</a>
+        </li>
+    </ul>
+</div>
+
+
+<div style="margin:5px; border:2px solid black; z-index:1; font-size:65%; font-weight:normal; height:250px; background-color:rgba(2, 2, 2, 0.5); position:relative; bottom:0px; padding:1.5em; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;">
+    <!--
+    <span id="footerposition" style="float:right;"></span>
+    -->
+    <center>
+    <table style="margin:2.5em 0 1.5em 0; background-color:transparent;">
+        <tr>
+        <td style="align:right;">
+            <img style="margin-top:0px; margin-bottom:0px;" src="plone_footer_logo.png">
+        </td>
+        <td style="align:left;">
+        <div style="border-left:1px solid white;">
+            <a style="margin-left:15px;" title="Plone" href="http://plone.org">Plone<sup></sup>オープンソース CMS/WCM</a>の著作権<acronym title="著作権">&copy;</acronym>2000-2012&nbsp;は<a href="http://plone.org/foundation">Plone Foundation</a>とその支持者&nbsp;にあります。<a href="http://creativecommons.org/licenses/GPL/2.0/">GNU GPL license</a>の下で配布されています。</li><br />
+            <a style="margin-left:15px;" title="このサイトは Plone オープンソース CMS/WCM (Plone 4.0.5) をベースにして構築されています。" href="http://plone.org">Powered by　Python Zope &amp; Plone</a></li><br />
+        </div>
+        </td>
+        </tr>
+    </table>
+    </center>
+
+    <table align="center" style="margin-left:20px; width:98%; background-color:transparent;">
+        <tr>
+        <th style="text-align:left; padding-left:0; font-size:120%;">Overview</th>
+        <th style="text-align:left; padding-left:0; font-size:120%;">Categories</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th style="text-align:left; padding-left:0; font-size:120%;">Plone</th>
+        </tr>
+        <tr>
+        <td style="width:16%; vertical-align:top;">
+            <ul style="list-style: none; line-height:200%; padding-left:0;">
+                <li style="display:inline;"><a title="サイトマップの表示。" accesskey="3" href="http://papasan.mydns.jp/sitemap?bgopacity=85">サイトマップ</a></li><br />
+                <li style="display:inline;"><a title="アクセシビリティ: 文字サイズの変更やアクセスキー一覧" accesskey="0" href="http://papasan.mydns.jp/accessibility-info?bgopacity=85">アクセシビリティ</a></li><br />
+                <li style="display:inline;"><a title="カテゴリ一覧" accesskey="0" href="http://papasan.mydns.jp/e382abe38386e382b4e383aa?bgopacity=85">カテゴリ</a></li><br />
+            </ul>
+        </td>
+
+        <td style="width:16%; vertical-align:top;">
+            <ul style="list-style: none; line-height:200%; padding-left:0;">
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/after20effects20e382abe38386e382b4e383aa/?bgopacity=85">Adobe After Effects</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/adobe20iustrator20e382abe38386e382b4e383aa/?bgopacity=85">Adobe Illustrator</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/adobe20lightroom/?bgopacity=85">Adobe Lightroom</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/adobe20photoshop20e382abe38386e382b4e383aa/?bgopacity=85">Adobe Photoshop</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/adobe20premiere20pro20e382abe38386e382b4e383aa/?bgopacity=85">Adobe Premiere Pro</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/apache220e382abe38386e382b4e383aa/?bgopacity=85">Apache2</a></li><br />
+            </ul>
+        </td>
+
+        <td style="width:16%; vertical-align:top;">
+            <ul style="list-style: none; line-height:200%; padding-left:0;">
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/adobe20illustrator20e382abe38386e382b4e383aa/?bgopacity=85">Bash</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/java/?bgopacity=85">JAVA</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/javascript20e382abe38386e382b4e383aa/?bgopacity=85">JavaScript</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/linux/?bgopacity=85">Linux</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/movie20e382abe38386e382b4e383aa/?bgopacity=85">Movie</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/plone20e382abe38386e382b4e383aa/?bgopacity=85">Plone</a></li><br />
+            </ul>
+        </td>
+
+        <td style="width:16%; vertical-align:top;">
+            <ul style="list-style: none; line-height:200%; padding-left:0;">
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/python20e382abe38386e382b4e383aa/?bgopacity=85">Python</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/red520e382abe38386e382b4e383aa/?bgopacity=85">Red5</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/sqlite3/?bgopacity=85">SQLite3</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/style20sheets20e382abe38386e382b4e383aa/?bgopacity=85">Style Sheets</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/windows20e382abe38386e382b4e383aa/?bgopacity=85">Windows</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/zope20e382abe38386e382b4e383aa/?bgopacity=85">ZOPE</a></li><br />
+            </ul>
+        </td>
+
+        <td style="width:16%; vertical-align:top;">
+            <ul style="list-style: none; line-height:200%; padding-left:0;">
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e382abe38386e382b4e383aa/e3819de381aee4bb96e381ae20e382abe38386e382b4e383aa/?bgopacity=85">その他</a></li><br />
+            </ul>
+        </td>
+
+
+        <td style="width:16%; vertical-align:top;">
+            <ul style="list-style: none; line-height:200%; padding-left:0;">
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/plone414/">Plone 4.1.4 テストサイト</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/plone414/papablog">Plone 4.1.4 ブログ</a></li><br />
+                <!-- Misc. -->
+                <li style="display:inline; color:white;">Misc.</li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/e58699e79c9f">写真</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/bookmarks">ブックマーク</a></li><br />
+                <li style="display:inline;"><a href="http://papasan.mydns.jp/webmeeting">Web会議（調査資料）</a></li><br />
+            </ul>
+        </td>
+        </tr>
+    </table>
+</div>
+
+<!-- REQUESTオブジェクトの表示（テスト用）
+<h3>form</h3><table><tr valign="top" align="left"><th>folder</th><td>'demo'</td></tr><tr valign="top" align="left"><th>remote_host</th><td>'fw2.jap.co.jp'</td></tr></table><h3>cookies</h3><table><tr valign="top" align="left"><th>bgslider</th><td>'75'</td></tr></table><h3>lazy items</h3><table><tr valign="top" align="left"><th>SESSION</th><td>&lt;bound method SessionDataManager.getSessionData of &lt;SessionDataManager at /session_data_manager&gt;&gt;</td></tr></table><h3>other</h3><table><tr valign="top" align="left"><th>VIRTUAL_URL_PARTS</th><td>('http://papasan.mydns.jp', 'papacalendar')</td></tr><tr valign="top" align="left"><th>firstDay</th><td>0</td></tr><tr valign="top" align="left"><th>VIRTUAL_URL</th><td>'http://papasan.mydns.jp/papacalendar'</td></tr><tr valign="top" align="left"><th>bgopacity</th><td>'75'</td></tr><tr valign="top" align="left"><th>gotoDate</th><td>''</td></tr><tr valign="top" align="left"><th>URL2</th><td>'http://papasan.mydns.jp'</td></tr><tr valign="top" align="left"><th>bgimage</th><td>''</td></tr><tr valign="top" align="left"><th>AUTHENTICATION_PATH</th><td>'papalone/virtual_hosting'</td></tr><tr valign="top" align="left"><th>LANGUAGE</th><td>'ja'</td></tr><tr valign="top" align="left"><th>AUTHENTICATED_USER</th><td>&lt;SpecialUser 'Anonymous User'&gt;</td></tr><tr valign="top" align="left"><th>SERVER_URL</th><td>'http://papasan.mydns.jp'</td></tr><tr valign="top" align="left"><th>bgcolor</th><td>'black'</td></tr><tr valign="top" align="left"><th>folder</th><td>'demo'</td></tr><tr valign="top" align="left"><th>bgslide</th><td>'true'</td></tr><tr valign="top" align="left"><th>method</th><td>'GET'</td></tr><tr valign="top" align="left"><th>ACTUAL_URL</th><td>'http://papasan.mydns.jp/papacalendar'</td></tr><tr valign="top" align="left"><th>bgduration</th><td>60</td></tr><tr valign="top" align="left"><th>URL</th><td>'http://papasan.mydns.jp/papacalendar/index_html'</td></tr><tr valign="top" align="left"><th>calendar_width</th><td>'auto'</td></tr><tr valign="top" align="left"><th>managerRole</th><td>0</td></tr><tr valign="top" align="left"><th>PUBLISHED</th><td>&lt;DTMLMethod at /papalone/papacalendar/index_html&gt;</td></tr><tr valign="top" align="left"><th>TraversalRequestNameStack</th><td>[]</td></tr><tr valign="top" align="left"><th>VirtualRootPhysicalPath</th><td>('', 'papalone')</td></tr><tr valign="top" align="left"><th>LANGUAGE_TOOL</th><td>&lt;Products.PloneLanguageTool.LanguageTool.LanguageBinding instance at 0x7f5ea8de0128&gt;</td></tr><tr valign="top" align="left"><th>firsthour</th><td>'current'</td></tr><tr valign="top" align="left"><th>BASE1</th><td>'http://papasan.mydns.jp'</td></tr><tr valign="top" align="left"><th>BASE2</th><td>'http://papasan.mydns.jp/papacalendar'</td></tr><tr valign="top" align="left"><th>BASE3</th><td>'http://papasan.mydns.jp/papacalendar/index_html'</td></tr><tr valign="top" align="left"><th>URL1</th><td>'http://papasan.mydns.jp/papacalendar'</td></tr><tr valign="top" align="left"><th>minutes</th><td>15</td></tr><tr valign="top" align="left"><th>view</th><td>'month'</td></tr><tr valign="top" align="left"><th>URL0</th><td>http://papasan.mydns.jp/papacalendar/index_html</td></tr><tr valign="top" align="left"><th>URL1</th><td>http://papasan.mydns.jp/papacalendar</td></tr><tr valign="top" align="left"><th>URL2</th><td>http://papasan.mydns.jp</td></tr><tr valign="top" align="left"><th>BASE0</th><td>http://papasan.mydns.jp</td></tr><tr valign="top" align="left"><th>BASE1</th><td>http://papasan.mydns.jp</td></tr><tr valign="top" align="left"><th>BASE2</th><td>http://papasan.mydns.jp/papacalendar</td></tr><tr valign="top" align="left"><th>BASE3</th><td>http://papasan.mydns.jp/papacalendar/index_html</td></tr></table><h3>environ</h3><table><tr valign="top" align="left"><th>HTTP_X_FORWARDED_SERVER</th><td>'papasan.mydns.jp'</td></tr><tr valign="top" align="left"><th>HTTP_REFERER</th><td>'http://papasan.mydns.jp/'</td></tr><tr valign="top" align="left"><th>HTTP_ACCEPT_LANGUAGE</th><td>'ja-jp'</td></tr><tr valign="top" align="left"><th>SERVER_SOFTWARE</th><td>'Zope/(2.12.17, python 2.6.6, linux2) ZServer/1.1'</td></tr><tr valign="top" align="left"><th>SCRIPT_NAME</th><td>''</td></tr><tr valign="top" align="left"><th>REQUEST_METHOD</th><td>'GET'</td></tr><tr valign="top" align="left"><th>PATH_INFO</th><td>'/VirtualHostBase/http/papasan.mydns.jp:80/papalone/VirtualHostRoot/papacalendar'</td></tr><tr valign="top" align="left"><th>SERVER_PROTOCOL</th><td>'HTTP/1.1'</td></tr><tr valign="top" align="left"><th>QUERY_STRING</th><td>'remote_host=fw2.jap.co.jp&amp;folder=demo'</td></tr><tr valign="top" align="left"><th>channel.creation_time</th><td>1352356958</td></tr><tr valign="top" align="left"><th>CONNECTION_TYPE</th><td>'Keep-Alive'</td></tr><tr valign="top" align="left"><th>HTTP_USER_AGENT</th><td>'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.55.3 (KHTML, like Gecko) Version/5.1.5 Safari/534.55.3'</td></tr><tr valign="top" align="left"><th>HTTP_COOKIE</th><td>'bgslider=75'</td></tr><tr valign="top" align="left"><th>SERVER_NAME</th><td>'papasan.mydns.jp'</td></tr><tr valign="top" align="left"><th>REMOTE_ADDR</th><td>'127.0.0.1'</td></tr><tr valign="top" align="left"><th>HTTP_VIA</th><td>'1.1 papasan.mydns.jp'</td></tr><tr valign="top" align="left"><th>PATH_TRANSLATED</th><td>'/VirtualHostBase/http/papasan.mydns.jp:80/papalone/VirtualHostRoot/papacalendar'</td></tr><tr valign="top" align="left"><th>SERVER_PORT</th><td>'8080'</td></tr><tr valign="top" align="left"><th>HTTP_HOST</th><td>'localhost:8080'</td></tr><tr valign="top" align="left"><th>HTTP_ACCEPT</th><td>'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</td></tr><tr valign="top" align="left"><th>GATEWAY_INTERFACE</th><td>'CGI/1.1'</td></tr><tr valign="top" align="left"><th>HTTP_X_FORWARDED_FOR</th><td>'202.229.79.4'</td></tr><tr valign="top" align="left"><th>HTTP_X_FORWARDED_HOST</th><td>'papasan.mydns.jp'</td></tr><tr valign="top" align="left"><th>HTTP_ACCEPT_ENCODING</th><td>'gzip, deflate'</td></tr></table>
+-->
+
+</body>
+</html>
+

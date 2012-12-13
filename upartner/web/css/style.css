@@ -1,0 +1,790 @@
+body {
+    color: #968575;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font: 75%/2 "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Osaka, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro";
+    background: #FFFFFF url("../images/bg.gif");	/*背景色、背景画像の設定*/
+}
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form{
+    margin: 0px;
+    padding: 0px;
+}
+ul{
+    list-style-type: none;
+}
+img {
+    border: none;
+}
+input,textarea,select {
+    font-size: 1em;
+}
+form {
+    margin: 0px;
+}
+table {
+    border-collapse:collapse;
+    font-size: 100%;
+    border-spacing: 0;
+}
+
+/*リンク（全般）設定
+---------------------------------------------------------------------------*/
+a {
+    color: #968575;
+}
+a:hover {
+    color: #534b43;
+    text-decoration: none;
+}
+
+/*コンテナー（footer以外のブロックを囲むブロック）
+---------------------------------------------------------------------------*/
+#container {
+    text-align: left;
+    width: 100%;
+    background: url("../images/container_bg.gif") repeat-x left top;	/*上のヘッダーとメニューの拝背景画像の読み込み*/
+}
+
+/*ヘッダー
+---------------------------------------------------------------------------*/
+#header {
+    text-align: left;
+    height: 93px;	/*ヘッダーの高さ。container_bg.gifの高さに揃えておく。*/
+    width: 1000px;	/*ブロック幅*/
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+/*ロゴ画像設定*/
+#header #logo {
+    position: absolute;
+    left: 0px;	/*ヘッダーブロックに対して左から30pxの位置に配置*/
+    top: 0px;	/*ヘッダーブロックに対して上から0pxの位置に配置*/
+}
+/*h1見出しタグ設定*/
+#header h1 {
+    font-size: 30px;	/*文字サイズ*/
+    line-height: 20px;
+    font-weight: normal;
+    color: #FFFFFF;		/*文字色*/
+    position: absolute;
+    width: 600px;	/*ボックスの幅*/
+    left: 0px;	/*ヘッダーブロックに対して左から250pxの位置に配置*/
+    top: 20px;		/*ヘッダーブロックに対して上から20pxの位置に配置*/
+}
+#header h1 a {
+    text-decoration: none;
+    color: #FFFFFF;	/*文字色*/
+}
+/*カートにいれるボタン設定*/
+#header #cart {
+    position: absolute;
+    top: 0px;	/*ヘッダーブロックに対して上から0pxの位置に配置*/
+    right: 0px;	/*ヘッダーブロックに対して右から0pxの位置に配置*/
+}
+
+#header #login a{
+    position: absolute;
+    top: 15px;	/*ヘッダーブロックに対して上から0pxの位置に配置*/
+    right: 0px;	/*ヘッダーブロックに対して右から0pxの位置に配置*/
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+/*メインメニュー
+---------------------------------------------------------------------------*/
+ul#menu {
+    position: absolute;
+    top: 60px;	/*ヘッダーブロックに対して上から60pxの位置に配置*/
+    left: 0px;	/*ヘッダーブロックに対して左から0pxの位置に配置*/
+    width: 1000px;	/*ボックス幅*/
+    line-height: 32px;
+    height: 32px;
+    background: url("../images/line1.gif") no-repeat left top;	/*メニュー間のラインの一番左側の１本分*/
+}
+ul#menu li {
+    float: left;
+    background: url("../images/line1.gif") no-repeat right top;	/*各メニュー間の右側のライン*/
+}
+ul#menu li a {
+    text-decoration: none;
+    text-align: center;	/*文字をセンタリング*/
+    float: left;
+    width: 130px;		/*メニュー１個あたりの幅*/
+    display: block;
+}
+ul#menu li a:hover {
+    color: #333333;			/*マウスオン時の文字色*/
+    background: #e7e1da;	/*マウスオン時の背景色*/
+}
+
+/*コンテンツ（ヘッダー、メインメニューとフッター以外を囲むブロック）
+---------------------------------------------------------------------------*/
+#contents {
+    clear: left;
+    width: 1000px;	/*ブロック幅*/
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#contents img{
+    vertical-align: bottom;
+}
+
+/*メイン、サブを囲むブロック
+---------------------------------------------------------------------------*/
+#contentsin {
+    width: 790px;	/*ブロック幅*/
+    float: left;	/*左側に回り込みさせる設定*/
+}
+
+/*メインコンテンツ（中央ブロック）
+---------------------------------------------------------------------------*/
+#main {
+    float: right;	/*contentsinブロック内でメインコンテンツを右(right)に回り込み*/
+    width: 580px;	/*ブロック幅*/
+    padding: 13px 0px 10px;	/*左から、上、左右、下への余白*/
+}
+/*h2タグ設定*/
+#main  h2 {
+    background: #958574;	/*背景色*/
+    font-size: 150%;	/*文字サイズ*/
+    color: #FFFFFF;		/*文字色*/
+    clear: both;
+    width: 580px;
+    padding:4px 10px;
+    border:1px solid #aaa;
+    background-color:#fff;
+    background-image:-moz-linear-gradient(top, #ffffff, #958574);
+    background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #958574));
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=’#ffffff’,EndColorStr=’#958574’);
+/*    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+    box-shadow:0px 1px 2px rgba(0,0,0,0.2);
+    margin-bottom:1em;*/
+    text-shadow:0px 1px 1px rgba(0, 0, 0, 0.9);
+}
+.bartitle,
+.bartitle a { color:#444; text-decoration:none; font-size:12px; font-weight:bold; font-family:Arial; }
+.bartitle a:hover { color: #888;
+}
+/*h2タグをテキストタイプで使う場合の設定*/
+#main h2.text {
+    line-height: 30px;
+    color: #FFFFFF;	/*文字色*/
+/*    background: url("../images/title_bg.gif") no-repeat center;	背景画像の読み込み*/
+    width: 548px;
+    padding-left: 20px;
+    clear: both;
+    border: 1px solid #968575;
+}
+/*段落タグの余白設定*/
+#main p {
+    padding: 0.5em 10px 1em;	/*左から、上、左右、下への余白*/
+}
+/*段落タグの左右の余白をなくす設定*/
+#main p.img {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+/*サブコンテンツ（左側ブロック）
+---------------------------------------------------------------------------*/
+#sub {
+    float: left;	/*contentsinブロック内でサブコンテンツを左(left)に回り込み*/
+    width: 200px;	/*ブロック幅*/
+    padding: 13px 10px 10px 0px;	/*左から、上、右、下、左への余白*/
+}
+
+
+/*サブメニュー（Category Menuとある両サイドブロックのメニュー）
+---------------------------------------------------------------------------*/
+ul.menu {
+    margin-bottom: 1em;
+}
+ul.menu li {
+    border-right: 1px solid #a2a2a2;	/*右側の線の幅、線種、色*/
+    border-bottom: 1px solid #a2a2a2;	/*下側の線の幅、線種、色*/
+    border-left: 1px solid #a2a2a2;		/*左側の線の幅、線種、色*/
+}
+ul.menu li a {
+    text-decoration: none;
+    display: block;
+    width: 188px;
+    padding: 5px;
+    background: #FFFFFF url("../images/bg2.gif") no-repeat center 1px;	/*背景色、背景画像の読み込み*/
+}
+ul.menu li a:hover {
+    color: #333333;	/*マウスオン時の文字色*/
+    background: #e7e1da;	/*マウスオン時の背景色*/
+}
+
+/*サイドコンテンツ（右側ブロック）
+---------------------------------------------------------------------------*/
+#side {
+    float: right;	/*右側に回り込み*/
+    width: 200px;	/*ブロック幅*/
+    padding: 13px 0px 10px;	/*左から、上、左右、下への余白*/
+}
+
+/*サブ、サイドコンテンツ（左右ブロック）共通
+---------------------------------------------------------------------------*/
+/*h3タグ設定*/
+#sub h3,
+#side h3 {
+    clear: both;
+    width: 200px;
+    background: #958574;
+}
+/*32タグをテキストタイプで使う場合の設定*/
+#side h3.text,
+#sub h3.text {
+    color: #FFFFFF;	/*文字色*/
+    background: url("../images/s_title_bg.gif") no-repeat center;	/*背景画像の読み込み*/
+    width: 168px;
+    padding-left: 30px;
+    border: 1px solid #968575;	/*枠線の幅、線種、色*/
+    line-height: 30px;
+    font-size: 100%;
+}
+/*段落タグの余白設定*/
+#sub p,
+#side p {
+    padding: 0.5em 0px 1em;	/*左から、上、左右、下への余白*/
+}
+
+/*トップページ内「更新情報・お知らせ」ブロック
+---------------------------------------------------------------------------*/
+#main .new {
+    overflow: auto;
+    height: 150px;
+    width: 570px;
+    padding-left: 10px;
+    background: #FFFFFF;	/*背景色*/
+}
+#main .new dl {
+    clear: left;
+    width: 550px;
+    border-bottom: 1px solid #cccccc;	/*各記事ごとの下線の幅、線種、色*/
+    overflow: hidden;
+}
+#main .new dt {
+    font-weight: bold;	/*日付を太字にする設定。通常がいいならこの１行削除。*/
+    float: left;
+    width: 100px;
+}
+#main .new dd {
+    float: left;
+    width: 450px;
+}
+#main .new dd img {
+    vertical-align: middle;
+}
+*html #main .new dd img {
+    margin-top:0.5em;
+    vertical-align: baseline;
+}
+
+/*フッター
+---------------------------------------------------------------------------*/
+#footer {
+    clear: both;
+    width: 100%;
+    text-align: center;	/*文字をセンタリング*/
+    color: #FFFFFF;		/*文字色*/
+    background: #968575;	/*背景色*/
+}
+#footer a {
+    text-decoration: none;
+    color: #FFFFFF;	/*文字色*/
+}
+
+/*box1(subとsideブロック内)
+---------------------------------------------------------------------------*/
+#sub .box1,
+#side .box1 {
+    border-right: 1px solid #a2a2a2;	/*右側の線の幅、線種、色*/
+    border-bottom: 1px solid #a2a2a2;	/*下側の線の幅、線種、色*/
+    border-left: 1px solid #a2a2a2;		/*左側の線の幅、線種、色*/
+    background: #FFFFFF;	/*背景色*/
+    padding: 5px;	/*ボックス内の余白*/
+    font-size: 11px;	/*文字サイズ*/
+    line-height: 1.6;	/*行間*/
+    width: 188px;	/*ボックス幅*/
+    overflow: hidden;
+}
+#sub .box1 p,
+#side .box1 p {
+    padding: 0px;
+}
+#sub .box1 p.img,
+#side .box1 p.img {
+    float: left;	/*画像を左側に回り込みさせる設定*/
+}
+#sub .box1 p.img a img,
+#side .box1 p.img a img {
+    margin-right: 5px;	/*画像の右側にスペースをあける*/
+    border: 1px solid #D3D3D3;	/*画像の枠線の幅、線種、色*/
+}
+#sub .box1 p.img a:hover img,
+#side .box1 p.img a:hover img {
+    border: 1px solid #333333;	/*マウスオン時の枠線の幅、線種、色*/
+}
+#sub .box1 strong,
+#side .box1 strong {
+    color: #716558;	/*ボックス内の太字(strong)設定の文字色*/
+}
+#sub .box1 strong a,
+#side .box1 strong a {
+    color: #716558;	/*ボックス内の太字(strong)にリンク設定をした際の文字色*/
+}
+#sub .box1 strong a:hover,
+#side .box1 strong a:hover {
+    color: #968575;	/*ボックス内の太字(strong)にリンク設定をした際のマウスオン時の文字色*/
+}
+
+/*box1(mainブロック内)
+---------------------------------------------------------------------------*/
+#main .box1 {
+    border-top: 1px solid #a2a2a2;		/*上側の線の幅、線種、色*/
+    border-right: 1px solid #a2a2a2;	/*右側の線の幅、線種、色*/
+    border-bottom: 1px solid #a2a2a2;	/*下側の線の幅、線種、色*/
+    border-left: 5px solid #968575;		/*左側の線の幅、線種、色*/
+    background: #FFFFFF;	/*背景色*/
+    padding: 5px;	/*ボックス内の余白*/
+    font-size: 11px;	/*文字サイズ*/
+    line-height: 1.6;	/*行間*/
+    width: 564px;		/*ボックス幅*/
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+#main .box1 p {
+    padding: 0px;
+}
+#main .box1 p.img {
+    float: left;	/*画像を左側に回り込みさせる設定*/
+}
+#main .box1 p.img img {
+    margin-right: 5px;	/*画像の右側にスペースをあける*/
+    border: 1px solid #D3D3D3;	/*画像の枠線の幅、線種、色*/
+}
+#main .box1 p.img a:hover img {
+    border: 1px solid #333333;	/*マウスオン時の枠線の幅、線種、色*/
+}
+#main .box1 h3 {
+    color: #716558;		/*ボックス内のh3タグの文字色*/
+    font-size: 120%;	/*文字サイズ*/
+    letter-spacing: 0.2em;	/*文字間にすこしゆとりを出す設定。通常がいいならこの１行削除。*/
+}
+#main .box1 h3 a {
+    color: #716558;	/*ボックス内のh3タグにリンク設定をした際の文字色*/
+}
+#main .box1 h3 a:hover {
+    color: #968575;	/*ボックス内のh3タグにリンク設定をした際のマウスオン時の文字色*/
+}
+
+#main .categolySelect {
+    margin-left: 10px;	/*画像の右側にスペースをあける*/
+}
+
+/*テーブル１
+---------------------------------------------------------------------------*/
+.ta1 {
+    width: 580px;	/*テーブル幅*/
+    background: #FFFFFF;	/*背景色*/
+}
+.ta1, .ta1 td, .ta1 th{
+    border: 1px solid #a2a2a2;	/*テーブルの枠線の幅、線種、色*/
+    line-height: 2;
+}
+/*テーブル内の右側*/
+.ta1 td{
+    width: 387px;
+    padding: 10px;
+    vertical-align: top;
+}
+/*テーブル内の段落タグの余白*/
+.ta1 p {
+    padding: 0px !important;
+}
+/*テーブル内の左側の見出し部分*/
+.ta1 th{
+    width: 150px;
+    padding: 10px;
+    text-align: center;	/*文字をセンタリング*/
+    background: #dad4cd url("../images/bg3.gif");	/*背景色と背景画像の読み込み*/
+}
+/*テーブル１行目に入った見出し部分*/
+.ta1 th.tamidashi{
+    width: auto;
+    text-align: left;
+    color: #FFFFFF;			/*文字色*/
+    background: #968575;	/*背景色*/
+}
+
+/*トップページのスライドショー
+---------------------------------------------------------------------------*/
+#mainimg {
+    position: relative;
+    height: 307px;
+    width: 508px;
+    margin-bottom: 10px;
+}
+#mainimg .slide_file {
+    display: none;
+}
+#slide_image {
+    z-Index:2;
+    position: absolute;
+    left:0px;
+    top:0px;
+}
+#slide_image2 {
+    z-Index:1;
+    position: absolute;
+    left:0px;
+    top:0px;
+}
+
+/*その他
+---------------------------------------------------------------------------*/
+#calendar {
+	width: 900px;
+        margin: 0px 0px 13px 0px;
+        text-align: center;
+        font-size: 14px;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        background: #ffffff;
+}
+
+#cal_title {
+            font-size: 30px;
+}
+
+.gCalendar {
+    margin: 13px 0px 0px 0px;
+}
+
+#external-events {
+    float: left;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
+}
+		
+#external-events h4 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 1em;
+}
+		
+.external-event { /* try to mimick the look of a real event */
+    margin: 10px 0;
+    padding: 2px 4px;
+    background: #3366CC;
+    color: #fff;
+    font-size: .85em;
+    cursor: pointer;
+}
+		
+#external-events p {
+    margin: 1.5em 0;
+    font-size: 11px;
+    color: #666;
+}
+		
+#external-events p input {
+    margin: 0;
+    vertical-align: middle;
+}
+
+#calendar .fc-sun { color: red; }  /* 日曜日 */
+#calendar .fc-sat { color: blue; } /* 土曜日 */
+
+
+html, body {
+    height: 100%;
+    overflow: auto;
+}
+
+/*#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}*/
+
+/**html #tooltip {
+    position: absolute;
+}*/
+    
+#tooltip {
+    position: fixed;
+    opacity: 0.8;
+    z-index: 100;
+}
+
+.look {
+    background-color: #E9E9E9;
+}
+.mb1em {
+    margin-bottom: 1em;
+}
+.mb10 {
+    margin-bottom: 10px;
+}
+.pt6 {
+    padding-top: 13px !important;
+}
+
+.calendar {
+    padding-top: 50px !important;
+}
+
+.search {
+    padding-top: 0px !important;
+}
+
+.clear {
+    clear: both;
+}
+ul.disc {
+    padding: 0em 25px 1em;
+    list-style: disc;
+}
+.color1 {
+    color: #716558;
+}
+.pr {
+    font-size: 10px;
+}
+.box {
+    background: #FFFFFF;
+    padding: 5px !important;
+    border: 1px solid #a2a2a2;
+}
+.osusume {
+    background: #FFFFFF url("../images/icon_osusume.gif") no-repeat right bottom !important;
+}
+.soldout {
+    background: #FFFFFF url("../images/icon_soldout.gif") no-repeat right bottom !important;
+}
+#pagetop {
+    clear: both;
+    width: 100%;
+    text-align: right;
+}
+
+#loading {
+opacity:0.6;
+display:none;
+position:absolute;
+top:0;
+text-align: center;
+font-size:100%;
+width:100%;
+height: 100%;
+background: #FFF;
+z-index:10;
+}
+
+#loadingImg {
+   display:block;
+   margin:auto;
+   top: 40%;
+   left: 50%;
+   position: absolute;
+}
+
+
+/*カレンダー用ダイアログ
+---------------------------------------------------------------------------*/
+
+
+/* 入力ダイアログ */
+div#events-contain {
+    width: 350px;
+    margin: 20px 0;
+}
+
+div#events-contain table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+div#events-contain table td,
+div#users-contain table th {
+    border: 1px solid #eee;
+    padding: 0.6em 10px;
+    text-align: left;
+}
+
+.dialog {
+    padding: 5px;
+    font-size: 60%;
+    text-align: left;
+}
+
+label,
+input {
+    display: block;
+}
+
+input.text {
+    margin-bottom: 10px;
+    width: 98% !important;
+    padding: 0.4em;
+}
+
+input.start {
+    margin-bottom: 10px;
+    width: 47%;
+    padding: 0.4em;
+}
+
+input.reminder {
+    margin-bottom: 10px;
+    width: 47%;
+    padding: 0.4em;
+}
+
+input.end {
+    margin-bottom: 10px;
+    width: 47%;
+    padding: 0.4em;
+}
+
+fieldset {
+    padding: 0;
+    border: 0;
+    margin-top: 1em;
+}
+
+.ui-dialog {
+    background-image: url(stripe_images/stripe_black);
+    background-color: #333333;
+}
+
+.ui-dialog .ui-dialog-content {
+    height: 310px !important;
+}
+
+.ui-dialog .ui-state-error {
+    padding: 0.3em;
+}
+
+.ui-dialog-buttonpane {
+    font-size: 62.5%;
+}
+
+.ui-dialog .ui-dialog-title {
+    font-size: 80%;
+}
+
+.validateTips {
+    border: 1px solid transparent;
+    padding: 0.3em;
+}
+
+.dialogTags {
+    display: inline;
+    vertical-align: top;
+    margin-top: 0;
+}
+
+textarea#dialogDesc {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    color: white;
+    height: 4em;
+    padding: 0.4em;
+    width: 98%;
+}
+
+div#event_buttons {
+    height: 3em;
+    font-size: 12px;
+}
+
+.dialogDefault {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid gray;
+    color: black;
+}
+
+.dialogImportant {
+    background-color: rgba(255, 99, 71, 0.75);
+    border: 1px solid gray;
+    color: white;
+}
+
+.dialogJob {
+    background-color: rgba(208, 180, 140, 0.75);
+    border: 1px solid gray;
+    color: white;
+}
+
+.dialogPrivate {
+    background-color: rgba(85, 107, 47, 0.75);
+    border: 1px solid gray;
+    color: white;
+}
+
+.dialogTodo {
+    background-color: rgba(100, 149, 237, 0.75);
+    border: 1px solid gray;
+    color: white;
+}
+
+.dialogSumi {
+    background-color: rgba(0, 0, 0, 1.0);
+    border: 1px solid red;
+    border-radius: 50%;
+    color: red;
+    font-weight: bold;
+    padding: 2px;
+}
+
+#dialogIcon {
+    display: none;
+}
+
+#dialogIcons {
+    background-color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+}
+img.icon {
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin: 3px;
+}
+img.icon:hover {
+    border: 1px solid tomato;
+}
+
+.ui-widget-header {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    background-image: none;
+    background-color: transparent;
+    border-width: 1px 0 0;
+    margin: 0.5em 0 0;
+    padding: 0.3em 1em 0.5em 0.4em;
+    text-align: left;
+}
