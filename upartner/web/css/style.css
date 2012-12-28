@@ -1,10 +1,16 @@
+html {
+    height: 100%;
+    overflow-y: scroll;
+}
+
 body {
     color: #968575;
     margin: 0px;
     padding: 0px;
     text-align: center;
     font: 75%/2 "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Osaka, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro";
-    background: #FFFFFF url("../images/bg.gif");	/*背景色、背景画像の設定*/
+    background: #EEEEEE;
+/*    background: #EEEEEE url("../images/bg.gif");*/
 }
 h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form{
     margin: 0px;
@@ -69,7 +75,7 @@ a:hover {
     font-weight: normal;
     color: #FFFFFF;		/*文字色*/
     position: absolute;
-    width: 600px;	/*ボックスの幅*/
+    width: 1000px;	/*ボックスの幅*/
     left: 0px;	/*ヘッダーブロックに対して左から250pxの位置に配置*/
     top: 20px;		/*ヘッダーブロックに対して上から20pxの位置に配置*/
 }
@@ -84,12 +90,34 @@ a:hover {
     right: 0px;	/*ヘッダーブロックに対して右から0pxの位置に配置*/
 }
 
-#header #login a{
-    position: absolute;
-    top: 15px;	/*ヘッダーブロックに対して上から0pxの位置に配置*/
-    right: 0px;	/*ヘッダーブロックに対して右から0pxの位置に配置*/
-    color: #FFFFFF;
+#header #head-nav{
     font-size: 15px;
+}
+
+#header #head-nav li{
+    float: left;
+    margin-right: 1em;
+    margin-top: 1em;
+    color: #FFFFFF;
+}
+
+#header #head-nav a{
+    color: #FFFFFF;
+}
+
+
+#header ul#head-nav li a {
+    display: block;
+}
+#header ul#head-nav li a:hover {
+    color: #333333;			/*マウスオン時の文字色*/
+}
+
+ul#head-nav {
+    position: absolute;
+    right: 0px;
+    line-height: 32px;
+    height: 32px;
 }
 
 /*メインメニュー
@@ -98,7 +126,7 @@ ul#menu {
     position: absolute;
     top: 60px;	/*ヘッダーブロックに対して上から60pxの位置に配置*/
     left: 0px;	/*ヘッダーブロックに対して左から0pxの位置に配置*/
-    width: 1000px;	/*ボックス幅*/
+    width: 790px;	/*ボックス幅*/
     line-height: 32px;
     height: 32px;
     background: url("../images/line1.gif") no-repeat left top;	/*メニュー間のラインの一番左側の１本分*/
@@ -143,7 +171,7 @@ ul#menu li a:hover {
 ---------------------------------------------------------------------------*/
 #main {
     float: right;	/*contentsinブロック内でメインコンテンツを右(right)に回り込み*/
-    width: 580px;	/*ブロック幅*/
+    width: 790px;	/*ブロック幅*/
     padding: 13px 0px 10px;	/*左から、上、左右、下への余白*/
 }
 /*h2タグ設定*/
@@ -507,12 +535,6 @@ ul.menu li a:hover {
 #calendar .fc-sun { color: red; }  /* 日曜日 */
 #calendar .fc-sat { color: blue; } /* 土曜日 */
 
-
-html, body {
-    height: 100%;
-    overflow: auto;
-}
-
 /*#wrapper {
     position: relative;
     width: 100%;
@@ -603,6 +625,13 @@ z-index:10;
 }
 
 
+/*新規会員登録用フォーム
+---------------------------------------------------------------------------*/
+#nametd {
+  white-space: nowrap;  
+}
+
+
 /*カレンダー用ダイアログ
 ---------------------------------------------------------------------------*/
 
@@ -634,7 +663,7 @@ div#users-contain table th {
 
 label,
 input {
-    display: block;
+/*    display: block;*/
 }
 
 input.text {

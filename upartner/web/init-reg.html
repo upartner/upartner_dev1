@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="ja"> <![endif]-->
+<!--[if IE 7 ]> <html class="ie7" lang="ja"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie8" lang="ja"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9" lang="ja"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>
+<html class="" lang="ja">
+<!--<![endif]-->
+<head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta name="copyright" content="Template Party">
+    <meta name="description" content="U-PARTNER(ユーパートナー)">
+    <meta name="keywords" content="キーワード１,キーワード２,キーワード3">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link type="text/css" href="css/fullcalendar.css" rel="stylesheet" />
+    <link type="text/css" href="css/fullcalendar.print.css" rel="stylesheet" media='print' />
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+    <!--        <script type='text/javascript' src='js/fullcalendar.min.js'></script>-->
+    <script type='text/javascript' src='js/fullcalendar.js'></script>
+    <script type='text/javascript' src='js/gcal.js'></script>
+    <script type='text/javascript' src='js/jquery-ui-1.9.2.custom.min.js'></script>
+    <title>U-PARTNER EVENTSページ</title>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div id="header">
+            <h1><a href="index.html">U-PARTNER</a></h1>
+            <!--                <p id="cart"><a href="#"><img src="images/cart_btn.gif" alt="カートをみる" width="130" height="59" /></a></p>-->
+
+            <ul id="head-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="init-reg.html">新規登録</a></li>
+                <li><a href="login.html">ログイン</a></li>
+            </ul>
+
+            <ul id="menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="events.html">EVENTS</a></li>
+                <li><a href="hotwords.html">HOT WORDS</a></li>
+                <li><a href="guide.html">GUIDE</a></li>
+                <li><a href="support.html">SUPPORT</a></li>
+            </ul>
+        </div>
+        <!--/header-->
+
+        <div id="contents">
+
+            <div id="contentsin">
+
+                <div id="main">
+
+                    <div id="wrapper" class="clearfix">
+                        <div id="container" class="col1">
+                            <table id="body-1col">
+                                <tr>
+                                    <td class="maincol">
+                                        <div class="box">
+                                            <h1 class="title">U-PARTNERに登録して楽しもう！</h1>
+                                            <div class="content">
+                                                <table id="reg_wizard">
+                                                    <tr>
+                                                        <td class="gray">ユーザー情報入力</td>
+                                                        <td class="sepa gw">&gt;</td>
+                                                        <td class="white">メールアドレス認証</td>
+                                                        <td class="sepa ww">&gt;</td>
+                                                        <td class="white">完了</td>
+                                                    </tr>
+                                                </table>
+
+                                                <form action="" method="post" style="display: inline">
+                                                    <h4>プロフィール</h4>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr valign="top">
+                                                                <th style="width:150px">
+                                                                    <label for="last_name">氏名</label>
+                                                                    <span class="notice">（非公開）</span>
+                                                                </th>
+                                                                <td id="nametd">
+                                                                    <label for="last_name">姓</label> 
+                                                                    <input name="last_name" value="" type="text" id="last_name" size=25 maxlength="10" />&nbsp;
+                                                                    <label for="first_name">名</label> 
+                                                                    <input name="first_name" value="" type="text" id="first_name" size=25 maxlength="10" /><br />
+                                                                    <input type="hidden" name="open_name_level" value="2" />
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr><th valign="top">
+                                                                    <label for="nick_name">ニックネーム</label>
+                                                                </th>
+                                                                <td>
+                                                                    <input name="nick_name" value="" type="text" size="40" id="nick_name"  maxlength="20" />
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th  valign="top">
+                                                                    <label for="mobile_mail">携帯メールアドレス</label><br />
+                                                                    <span class="notice">（非公開）</span>
+                                                                </th>
+
+                                                                <td>
+                                                                    <input name="mobile_mail" value="" type="text" size="40" id="mobile_mail" /><br />
+                                                                    <div class="notice">au、DoCoMo、SoftBank（iPhone/Android除く）の携帯メールアドレスを入力してください。ドメイン指定受信を設定されている方は「upartner.jp」を受信できるように設定してください。</div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th valign="top">
+                                                                    <label for="user_password">パスワード</label><br />
+                                                                    <span class="notice">（非公開）</span>
+                                                                </th>
+
+                                                                <td>
+                                                                    <input name="user_password" value="" type="password" size="20" id="user_password" /><br />
+                                                                    <div class="notice">半角英数のみ、6字以上20字以内<br />※第三者による不正利用防止の為、できるだけ推測されにくいパスワードを設定してください</div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th valign="top">
+                                                                    <label for="user_password_confirm">パスワード確認</label>
+                                                                </th>
+
+                                                                <td>
+                                                                    <input name="user_password_confirm" value="" type="password" size="20" id="user_password_confirm" /><br />
+                                                                    <div class="notice">入力ミスを防ぐため、もう一度パスワードを入力してください。
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th valign="top">
+                                                                    <label for="user_pref">住んでいる地域</label>
+                                                                </th>
+
+                                                                <td>
+                                                                    <select name="user_pref" style="width:10em">
+                                                                        <option value="0">-------</option>
+                                                                        <option label="北海道" value="1">北海道</option>
+                                                                        <option label="青森県" value="2">青森県</option>
+                                                                        <option label="岩手県" value="3">岩手県</option>
+                                                                        <option label="宮城県" value="4">宮城県</option>
+                                                                        <option label="秋田県" value="5">秋田県</option>
+                                                                        <option label="山形県" value="6">山形県</option>
+                                                                        <option label="福島県" value="7">福島県</option>
+                                                                        <option label="茨城県" value="8">茨城県</option>
+                                                                        <option label="栃木県" value="9">栃木県</option>
+                                                                        <option label="群馬県" value="10">群馬県</option>
+                                                                        <option label="埼玉県" value="11">埼玉県</option>
+                                                                        <option label="千葉県" value="12">千葉県</option>
+                                                                        <option label="東京都" value="13">東京都</option>
+                                                                        <option label="神奈川県" value="14">神奈川県</option>
+                                                                        <option label="山梨県" value="15">山梨県</option>
+                                                                        <option label="長野県" value="16">長野県</option>
+                                                                        <option label="新潟県" value="17">新潟県</option>
+                                                                        <option label="富山県" value="18">富山県</option>
+                                                                        <option label="石川県" value="19">石川県</option>
+                                                                        <option label="福井県" value="20">福井県</option>
+                                                                        <option label="岐阜県" value="21">岐阜県</option>
+                                                                        <option label="静岡県" value="22">静岡県</option>
+                                                                        <option label="愛知県" value="23">愛知県</option>
+                                                                        <option label="三重県" value="24">三重県</option>
+                                                                        <option label="滋賀県" value="25">滋賀県</option>
+                                                                        <option label="京都府" value="26">京都府</option>
+                                                                        <option label="大阪府" value="27">大阪府</option>
+                                                                        <option label="兵庫県" value="28">兵庫県</option>
+                                                                        <option label="奈良県" value="29">奈良県</option>
+                                                                        <option label="和歌山県" value="30">和歌山県</option>
+                                                                        <option label="鳥取県" value="31">鳥取県</option>
+                                                                        <option label="島根県" value="32">島根県</option>
+                                                                        <option label="岡山県" value="33">岡山県</option>
+                                                                        <option label="広島県" value="34">広島県</option>
+                                                                        <option label="山口県" value="35">山口県</option>
+                                                                        <option label="徳島県" value="36">徳島県</option>
+                                                                        <option label="香川県" value="37">香川県</option>
+                                                                        <option label="愛媛県" value="38">愛媛県</option>
+                                                                        <option label="高知県" value="39">高知県</option>
+                                                                        <option label="福岡県" value="40">福岡県</option>
+                                                                        <option label="佐賀県" value="41">佐賀県</option>
+                                                                        <option label="長崎県" value="42">長崎県</option>
+                                                                        <option label="熊本県" value="43">熊本県</option>
+                                                                        <option label="大分県" value="44">大分県</option>
+                                                                        <option label="宮崎県" value="45">宮崎県</option>
+                                                                        <option label="鹿児島県" value="46">鹿児島県</option>
+                                                                        <option label="沖縄県" value="47">沖縄県</option>
+                                                                    </select>
+
+                                                                    <input type="hidden" name="open_pref_level" value="1" />
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th valign="top">
+                                                                    <label>生年月日</label>
+                                                                </th>
+
+                                                                <td>
+                                                                    <select name="user_birth[year]">
+                                                                        <option value="">----</option>
+                                                                        <option label="2012" value="2012">2012</option>
+                                                                        <option label="2011" value="2011">2011</option>
+                                                                        <option label="2010" value="2010">2010</option>
+                                                                        <option label="2009" value="2009">2009</option>
+                                                                        <option label="2008" value="2008">2008</option>
+                                                                        <option label="2007" value="2007">2007</option>
+                                                                        <option label="2006" value="2006">2006</option>
+                                                                        <option label="2005" value="2005">2005</option>
+                                                                        <option label="2004" value="2004">2004</option>
+                                                                        <option label="2003" value="2003">2003</option>
+                                                                        <option label="2002" value="2002">2002</option>
+                                                                        <option label="2001" value="2001">2001</option>
+                                                                        <option label="2000" value="2000">2000</option>
+                                                                        <option label="1999" value="1999">1999</option>
+                                                                        <option label="1998" value="1998">1998</option>
+                                                                        <option label="1997" value="1997">1997</option>
+                                                                        <option label="1996" value="1996">1996</option>
+                                                                        <option label="1995" value="1995">1995</option>
+                                                                        <option label="1994" value="1994">1994</option>
+                                                                        <option label="1993" value="1993">1993</option>
+                                                                        <option label="1992" value="1992">1992</option>
+                                                                        <option label="1991" value="1991">1991</option>
+                                                                        <option label="1990" value="1990">1990</option>
+                                                                        <option label="1989" value="1989">1989</option>
+                                                                        <option label="1988" value="1988">1988</option>
+                                                                        <option label="1987" value="1987">1987</option>
+                                                                        <option label="1986" value="1986">1986</option>
+                                                                        <option label="1985" value="1985">1985</option>
+                                                                        <option label="1984" value="1984">1984</option>
+                                                                        <option label="1983" value="1983">1983</option>
+                                                                        <option label="1982" value="1982">1982</option>
+                                                                        <option label="1981" value="1981">1981</option>
+                                                                        <option label="1980" value="1980">1980</option>
+                                                                        <option label="1979" value="1979">1979</option>
+                                                                        <option label="1978" value="1978">1978</option>
+                                                                        <option label="1977" value="1977">1977</option>
+                                                                        <option label="1976" value="1976">1976</option>
+                                                                        <option label="1975" value="1975">1975</option>
+                                                                        <option label="1974" value="1974">1974</option>
+                                                                        <option label="1973" value="1973">1973</option>
+                                                                        <option label="1972" value="1972">1972</option>
+                                                                        <option label="1971" value="1971">1971</option>
+                                                                        <option label="1970" value="1970">1970</option>
+                                                                        <option label="1969" value="1969">1969</option>
+                                                                        <option label="1968" value="1968">1968</option>
+                                                                        <option label="1967" value="1967">1967</option>
+                                                                        <option label="1966" value="1966">1966</option>
+                                                                        <option label="1965" value="1965">1965</option>
+                                                                        <option label="1964" value="1964">1964</option>
+                                                                        <option label="1963" value="1963">1963</option>
+                                                                        <option label="1962" value="1962">1962</option>
+                                                                        <option label="1961" value="1961">1961</option>
+                                                                        <option label="1960" value="1960">1960</option>
+                                                                        <option label="1959" value="1959">1959</option>
+                                                                        <option label="1958" value="1958">1958</option>
+                                                                        <option label="1957" value="1957">1957</option>
+                                                                        <option label="1956" value="1956">1956</option>
+                                                                        <option label="1955" value="1955">1955</option>
+                                                                        <option label="1954" value="1954">1954</option>
+                                                                        <option label="1953" value="1953">1953</option>
+                                                                        <option label="1952" value="1952">1952</option>
+                                                                        <option label="1951" value="1951">1951</option>
+                                                                        <option label="1950" value="1950">1950</option>
+                                                                        <option label="1949" value="1949">1949</option>
+                                                                        <option label="1948" value="1948">1948</option>
+                                                                        <option label="1947" value="1947">1947</option>
+                                                                        <option label="1946" value="1946">1946</option>
+                                                                        <option label="1945" value="1945">1945</option>
+                                                                        <option label="1944" value="1944">1944</option>
+                                                                        <option label="1943" value="1943">1943</option>
+                                                                        <option label="1942" value="1942">1942</option>
+                                                                        <option label="1941" value="1941">1941</option>
+                                                                        <option label="1940" value="1940">1940</option>
+                                                                        <option label="1939" value="1939">1939</option>
+                                                                        <option label="1938" value="1938">1938</option>
+                                                                        <option label="1937" value="1937">1937</option>
+                                                                        <option label="1936" value="1936">1936</option>
+                                                                        <option label="1935" value="1935">1935</option>
+                                                                        <option label="1934" value="1934">1934</option>
+                                                                        <option label="1933" value="1933">1933</option>
+                                                                        <option label="1932" value="1932">1932</option>
+                                                                        <option label="1931" value="1931">1931</option>
+                                                                        <option label="1930" value="1930">1930</option>
+                                                                        <option label="1929" value="1929">1929</option>
+                                                                        <option label="1928" value="1928">1928</option>
+                                                                        <option label="1927" value="1927">1927</option>
+                                                                        <option label="1926" value="1926">1926</option>
+                                                                        <option label="1925" value="1925">1925</option>
+                                                                        <option label="1924" value="1924">1924</option>
+                                                                        <option label="1923" value="1923">1923</option>
+                                                                        <option label="1922" value="1922">1922</option>
+                                                                        <option label="1921" value="1921">1921</option>
+                                                                        <option label="1920" value="1920">1920</option>
+                                                                        <option label="1919" value="1919">1919</option>
+                                                                        <option label="1918" value="1918">1918</option>
+                                                                        <option label="1917" value="1917">1917</option>
+                                                                        <option label="1916" value="1916">1916</option>
+                                                                        <option label="1915" value="1915">1915</option>
+                                                                        <option label="1914" value="1914">1914</option>
+                                                                        <option label="1913" value="1913">1913</option>
+                                                                        <option label="1912" value="1912">1912</option>
+                                                                        <option label="1911" value="1911">1911</option>
+                                                                        <option label="1910" value="1910">1910</option>
+                                                                        <option label="1909" value="1909">1909</option>
+                                                                        <option label="1908" value="1908">1908</option>
+                                                                        <option label="1907" value="1907">1907</option>
+                                                                        <option label="1906" value="1906">1906</option>
+                                                                        <option label="1905" value="1905">1905</option>
+                                                                        <option label="1904" value="1904">1904</option>
+                                                                        <option label="1903" value="1903">1903</option>
+                                                                        <option label="1902" value="1902">1902</option>
+                                                                        <option label="1901" value="1901">1901</option>
+                                                                        <option label="1900" value="1900">1900</option>
+                                                                    </select> 年
+
+                                                                    <input type="hidden" name="open_birth_level" value="1" />
+                                                                    <select name="user_birth[month]">
+                                                                        <option value="">--</option>
+                                                                        <option label="1" value="1">1</option>
+                                                                        <option label="2" value="2">2</option>
+                                                                        <option label="3" value="3">3</option>
+                                                                        <option label="4" value="4">4</option>
+                                                                        <option label="5" value="5">5</option>
+                                                                        <option label="6" value="6">6</option>
+                                                                        <option label="7" value="7">7</option>
+                                                                        <option label="8" value="8">8</option>
+                                                                        <option label="9" value="9">9</option>
+                                                                        <option label="10" value="10">10</option>
+                                                                        <option label="11" value="11">11</option>
+                                                                        <option label="12" value="12">12</option>
+                                                                    </select> 月
+
+                                                                    <select name="user_birth[day]">
+                                                                        <option value="">--</option>
+                                                                        <option label="1" value="1">1</option>
+                                                                        <option label="2" value="2">2</option>
+                                                                        <option label="3" value="3">3</option>
+                                                                        <option label="4" value="4">4</option>
+                                                                        <option label="5" value="5">5</option>
+                                                                        <option label="6" value="6">6</option>
+                                                                        <option label="7" value="7">7</option>
+                                                                        <option label="8" value="8">8</option>
+                                                                        <option label="9" value="9">9</option>
+                                                                        <option label="10" value="10">10</option>
+                                                                        <option label="11" value="11">11</option>
+                                                                        <option label="12" value="12">12</option>
+                                                                        <option label="13" value="13">13</option>
+                                                                        <option label="14" value="14">14</option>
+                                                                        <option label="15" value="15">15</option>
+                                                                        <option label="16" value="16">16</option>
+                                                                        <option label="17" value="17">17</option>
+                                                                        <option label="18" value="18">18</option>
+                                                                        <option label="19" value="19">19</option>
+                                                                        <option label="20" value="20">20</option>
+                                                                        <option label="21" value="21">21</option>
+                                                                        <option label="22" value="22">22</option>
+                                                                        <option label="23" value="23">23</option>
+                                                                        <option label="24" value="24">24</option>
+                                                                        <option label="25" value="25">25</option>
+                                                                        <option label="26" value="26">26</option>
+                                                                        <option label="27" value="27">27</option>
+                                                                        <option label="28" value="28">28</option>
+                                                                        <option label="29" value="29">29</option>
+                                                                        <option label="30" value="30">30</option>
+                                                                        <option label="31" value="31">31</option>
+                                                                    </select> 日
+
+                                                                    <div class="notice">※パスワード照会時に必要ですので正確に入力してください
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th valign="top">
+                                                                    <label for="user_sex">性別</label>
+                                                                </th>
+
+                                                                <td>
+                                                                    <input type="radio" id="user_sex_male" name="user_sex" value="1"  />
+                                                                    <label for="user_sex_male">男性</label>
+                                                                    <input type="radio" id="user_sex_female" name="user_sex" value="2"  />
+                                                                    <label for="user_sex_female">女性</label>
+                                                                    <input type="hidden" name="open_sex_level" value="1" />
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th valign="top">
+                                                                    <label for="register_notification">友だち登録通知</label>
+                                                                </th>
+
+                                                                <td>
+                                                                    <input type="checkbox" id="register_notification" name="register_notification" value="1"  checked />
+                                                                    <div class="notice">※既にGREEを利用している友だちに、GREEに登録したことをお知らせします。
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                    <p>
+                                                        <a href="http://gree.jp/?mode=doc&amp;act=misc&amp;page=terms" target="_blank">利用規約</a>と<a href="http://gree.jp/?mode=doc&amp;act=misc&amp;page=privacy" target="_blank">プライバシーポリシー</a>に同意の上、「登録を確認（無料）」ボタンをクリックしてください。
+                                                    </p>
+                                                    <br />
+                                                    <div class="buttonbg">
+                                                        <input value="登録を確認（無料）" type="submit" />
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--/main-->
+
+                <div id="sub">
+
+
+                </div>
+                <!--/sub-->
+
+            </div>
+            <!--/contentsin-->
+
+            <div id="side">
+
+            </div>
+            <!--/side-->
+
+
+            <p id="pagetop"><a href="#container"><img src="images/pagetop.gif" alt="Page Top" width="130" height="26" /></a></p>
+
+        </div>
+        <!--/contents-->
+
+    </div>
+    <!--/container-->
+
+    <div id="footer"> Copyright(C) 2012 <a href="index.html">よりよいライフスタイルを提案する
+            U-PARTNER</a> All Rights Reserved.<br>
+    </div>
+    <!--/footer-->
+
+    <table>
+                                                        <tbody>
+                                                            <tr valign="top">
+                                                                <th style="width:150px">
+                                                                    <label for="last_name">氏名</label>
+                                                                    <span class="notice">（非公開）</span>
+                                                                </th>
+                                                                <td>
+                                                                    <label for="last_name">姓</label><input name="last_name" value="" type="text" id="last_name" size=25 maxlength="10" />&nbsp;<label for="first_name">名</label><input name="first_name" value="" type="text" id="first_name" size=25 maxlength="10" /><input type="hidden" name="open_name_level" value="2" /></td>
+                                                            </tr>
+                                                        </tbody>
+    </table>
+</body>
+</html>
