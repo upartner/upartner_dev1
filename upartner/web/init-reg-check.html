@@ -106,7 +106,7 @@
                                                                 </th>
 
                                                                 <td>
-                                                                    <input name="mobile_mail" value="" type="text" size="40" id="mobile_mail" class="validate mail required" /><br />
+                                                                    <input name="mobile_mail" value="" type="text" size="40" id="mobile_mail" class="validate mail" /><br />
                                                                     <div class="notice">ドメイン指定受信を設定されている方は「upartner.jp」を受信できるように設定してください。</div>
                                                                 </td>
                                                             </tr>
@@ -118,7 +118,7 @@
                                                                 </th>
 
                                                                 <td>
-                                                                    <input name="user_password" value="" type="password" size="20" id="user_password" class="validate required password"/><br />
+                                                                    <input name="user_password" value="" type="password" size="20" id="user_password" class="validate password"/><br />
                                                                     <div class="notice">半角英数のみ、6字以上20字以内<br />※第三者による不正利用防止の為、できるだけ推測されにくいパスワードを設定してください</div>
                                                                 </td>
                                                             </tr>
@@ -129,7 +129,7 @@
                                                                 </th>
 
                                                                 <td>
-                                                                    <input name="user_password_confirm" value="" type="password" size="20" id="user_password_confirm" class="validate required password_check"/><br />
+                                                                    <input name="user_password_confirm" value="" type="password" size="20" id="user_password_confirm" class="validate password_check"/><br />
                                                                     <div class="notice">入力ミスを防ぐため、もう一度パスワードを入力してください。
                                                                     </div>
                                                                 </td>
@@ -382,11 +382,10 @@
                                                                 </th>
 
                                                                 <td>
-                                                                    <input type="radio" id="user_sex_male" name="gendar"/>
+                                                                    <input type="radio" id="user_sex_male" name="gendar" class="validate required"/>
                                                                     <label class="sex" for="user_sex_male">男性</label>
-                                                                    <input type="radio" id="user_sex_female" name="gendar" class="validate required"/>
+                                                                    <input type="radio" id="user_sex_female" name="gendar" />
                                                                     <label class="sex" for="user_sex_female">女性</label>
-                                                                    <span id="sex_check"></span>
                                                                     <input type="hidden" name="open_sex_level" value="1" />
                                                                 </td>
                                                             </tr>
